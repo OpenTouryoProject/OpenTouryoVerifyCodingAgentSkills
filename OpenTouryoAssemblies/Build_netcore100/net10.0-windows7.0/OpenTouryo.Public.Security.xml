@@ -1,0 +1,3200 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenTouryo.Public.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadA128CbcHS256">
+            <summary>
+            AeadA128CbcHs256
+            認証付き暗号（A128CBC-HS256）クラス
+            A128CBC-HS256 (AES_128_CBC_HMAC_SHA_256
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA128CbcHS256.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA128CbcHS256.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadA128Gcm">
+            <summary>
+            AeadA128Gcm
+            認証付き暗号（AES128GCM）クラス
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA128Gcm.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA128Gcm.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadA192CbcHS384">
+            <summary>
+            AeadA192CbcHS384
+            認証付き暗号（AES_192_CBC_HMAC_SHA_384）クラス
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA192CbcHS384.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA192CbcHS384.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadA192Gcm">
+            <summary>
+            AeadA192Gcm
+            認証付き暗号（AES256GCM）クラス
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA192Gcm.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA192Gcm.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadA256CbcHS512">
+            <summary>
+            AeadA256CbcHS512
+            認証付き暗号（AES_256_CBC_HMAC_SHA_512）クラス
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA256CbcHS512.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA256CbcHS512.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadA256Gcm">
+            <summary>
+            AeadA256Gcm
+            認証付き暗号（AES256GCM）クラス
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA256Gcm.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadA256Gcm.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc">
+            <summary>AeadAesCbc認証付き暗号クラス</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc._aesCBC">
+            <summary>PaddedBufferedBlockCipher </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc._hmac">
+            <summary>HMAC</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.CEK_LEN">
+            <summary>CEK_LEN</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.ENC_KEY_LEN">
+            <summary>ENC_KEY_LEN</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.MAC_KEY_LEN">
+            <summary>MAC_KEY_LEN</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.TAG_LEN">
+            <summary>TAG_LEN</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.MacKey">
+            <summary>MAC_KEY as the SHA-256 key.</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.EncKey">
+            <summary>ENC_KEY as the AES-CBC key.</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.IV">
+            <summary>初期化ベクトル</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.AAD">
+            <summary>追加認証データ（AAD）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.AL">
+            <summary>AL value</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.InitAesCbc(System.Boolean)">
+            <summary>初期化（プロバイダ）</summary>
+            <param name="forEncrypt">bool</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.InitAL">
+            <summary>InitAL</summary>
+            <returns>AL value</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.Encrypt(System.Byte[])">
+            <summary>暗号化</summary>
+            <param name="plaint">平文（plaintext）</param>
+            <returns>AEAD実行結果オブジェクト</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesCbc.Decrypt(Touryo.Infrastructure.Public.Security.Aead.AeadResult)">
+            <summary>復号化</summary>
+            <param name="input">AeadResult</param>
+            <returns>平文（plaintext）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm">
+            <summary>
+            AeadAesGcm
+            認証付き暗号（AES-GCM）クラス
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.TAG_LEN">
+            <summary>
+            GCMで計算されるTagサイズは 128ビット = 16バイト:
+            https://tools.ietf.org/html/rfc7518#section-4.7
+             The requested size of the Authentication Tag output MUST be 128 bits, regardless of the key size.
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.CEK_LEN">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.Cek">
+            <summary>コンテンツ暗号化キー（CEK）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm._iv">
+            <summary>初期化ベクトル</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm._aad">
+            <summary>追加認証データ（AAD）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm._aesGcm">
+            <summary>GcmBlockCipher</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.InitSize">
+            <summary>初期化（サイズ）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.InitAesGcm(System.Boolean)">
+            <summary>初期化（プロバイダ）</summary>
+            <param name="forEncrypt">bool</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.Encrypt(System.Byte[])">
+            <summary>暗号化</summary>
+            <param name="plaint">平文（plaintext）</param>
+            <returns>AEAD実行結果オブジェクト</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadAesGcm.Decrypt(Touryo.Infrastructure.Public.Security.Aead.AeadResult)">
+            <summary>復号化</summary>
+            <param name="input">AeadResult</param>
+            <returns>平文（plaintext）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AeadResult">
+            <summary>
+            Aead結果クラス
+            </summary>
+            <summary>AeadResult</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadResult.Aead">
+            <summary>認証付き暗号</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadResult.Ciphert">
+            <summary>暗号文</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AeadResult.Tag">
+            <summary>認証タグ（MAC）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AeadResult.CombineByteArrayForDecrypt">
+            <summary>暗号文と認証タグ（MAC）を結合</summary>
+            <returns>ciphert + tag</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Aead.AuthEncrypt">
+            <summary>
+            認証付き暗号（AEAD）抽象クラス
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Aead.AuthEncrypt._result">
+            <summary>処理結果</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Aead.AuthEncrypt.Result">
+            <summary>
+            処理結果（AeadResult）
+            ・暗号文
+            ・認証タグ（MAC）
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AuthEncrypt.#ctor(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>constructor</summary>
+            <param name="cek">コンテンツ暗号化キー（CEK）</param>
+            <param name="iv">初期化ベクトル</param>
+            <param name="aad">追加認証データ（AAD）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AuthEncrypt.Encrypt(System.Byte[])">
+            <summary>暗号化</summary>
+            <param name="plaint">平文（plaintext）</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Aead.AuthEncrypt.Decrypt(Touryo.Infrastructure.Public.Security.Aead.AeadResult)">
+            <summary>復号化</summary>
+            <param name="result">AeadResult</param>
+            <returns>平文（plaintext）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc">
+            <summary>
+            AsymmetricAlgorithmCmnFuncクラス
+            - RSACryptoServiceProvider:
+              MD5, SHA1, SHA256, SHA384, SHA512
+            - DSACryptoServiceProvider:SHA1
+            だけ、サポート。
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.GetPublicKey(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>GetPublicKey</summary>
+            <param name="x509Key">X509Certificate2</param>
+            <returns>PublicKey</returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.GetPrivateKey(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>GetPrivateKey</summary>
+            <param name="x509Key">X509Certificate2</param>
+            <returns>PrivateKey</returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.RsaFactory">
+            <summary>RsaFactory</summary>
+            <returns>RSA</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.DsaFactory">
+            <summary>DsaFactory</summary>
+            <returns>DSA</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.CreateSameKeySizeSP(System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>CreateSameKeySizeSP</summary>
+            <param name="aa1">AsymmetricAlgorithm</param>
+            <returns>AsymmetricAlgorithm(RSA or DSA)</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.CreateCryptographySP(Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm,System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>対称アルゴリズム暗号化サービスプロバイダ生成</summary>
+            <param name="easa">EnumASymmetricAlgorithm</param>
+            <param name="certificateFilePath">X.509証明書(*.pfx, *.cer)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="flag">X509KeyStorageFlags</param>
+            <returns>AsymmetricAlgorithm</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.AsymmetricAlgorithmCmnFunc.CreateDigitalSignSP(Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm,System.Security.Cryptography.AsymmetricAlgorithm@,System.Security.Cryptography.HashAlgorithm@)">
+            <summary>署名・検証サービスプロバイダの生成</summary>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+            <param name="aa">
+            AsymmetricAlgorithm
+            - RSACryptoServiceProvider
+            - DSACryptoServiceProvider
+            </param>
+            <param name="ha">
+            HashAlgorithm
+            </param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.ASymmetricCryptography">
+            <summary>非対称アルゴリズムによる暗号化・復号化クラス</summary>
+            <remarks>
+            自由に利用できる。
+            </remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.ASymmetricCryptography._asa">
+            <summary>_asa</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.AsymmetricAlgorithm">
+            <summary>AsymmetricAlgorithm</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.PublicXmlKey">
+            <summary>PublicXmlKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.PrivateXmlKey">
+            <summary>PrivateXmlKey</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.#ctor(Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm,System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="algorithm">EnumASymmetricAlgorithm</param>
+            <param name="certificateFilePath">X.509証明書(*.pfx, *.cer)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.EncryptString(System.String,System.String,System.Security.Cryptography.RSAEncryptionPadding)">
+            <summary>文字列を暗号化する</summary>
+            <param name="sourceString">暗号化する文字列</param>
+            <param name="publicXmlKey">暗号化に使用する公開鍵</param>
+            <param name="padding">RSAEncryptionPadding</param>
+            <returns>非対称アルゴリズムで暗号化された文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.EncryptBytes(System.Byte[],System.String,System.Security.Cryptography.RSAEncryptionPadding)">
+            <summary>バイト配列を暗号化する</summary>
+            <param name="source">暗号化するバイト配列</param>
+            <param name="publicXmlKey">暗号化に使用する公開鍵</param>
+            <param name="padding">RSAEncryptionPadding</param>
+            <returns>非対称アルゴリズムで暗号化されたバイト配列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.DecryptString(System.String,System.String,System.Security.Cryptography.RSAEncryptionPadding)">
+            <summary>暗号化された文字列を復号化する</summary>
+            <param name="sourceString">暗号化された文字列</param>
+            <param name="privateXmlKey">復号化に使用する秘密鍵</param>
+            <param name="padding">RSAEncryptionPadding</param>
+            <returns>非対称アルゴリズムで復号化された文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.ASymmetricCryptography.DecryptBytes(System.Byte[],System.String,System.Security.Cryptography.RSAEncryptionPadding)">
+            <summary>暗号化されたバイト配列を復号化する</summary>
+            <param name="source">暗号化されたバイト配列</param>
+            <param name="privateXmlKey">復号化に使用する秘密鍵</param>
+            <param name="padding">RSAEncryptionPadding</param>
+            <returns>非対称アルゴリズムで復号化されたバイト配列</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSign">
+            <summary>
+            デジタル署名抽象クラス
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSign.AsymmetricAlgorithm">
+            <summary>AsymmetricAlgorithm</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSign.Padding">
+            <summary>RSASignaturePadding</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSign.HashAlgorithm">
+            <summary>HashAlgorithm</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSign.HashAlgorithmString">
+            <summary>HashAlgorithmString</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSign.HashAlgorithmName">
+            <summary>HashAlgorithmName</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.Sign(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.Verify(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.SignByFormatter(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.VerifyByDeformatter(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSign.IsDisposed">
+            <summary>IsDisposed</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.Finalize">
+            <summary>finalizer</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.Close">
+            <summary>Close</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.Dispose">
+            <summary>Dispose</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSign.MyDispose(System.Boolean)">
+            <summary>MyDispose (派生の末端を呼ぶ)</summary>
+            <param name="disposing">disposing</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng">
+            <summary>DigitalSignECDsaCngクラス</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.os">
+            <summary>OperatingSystem</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng._privateKey">
+            <summary>_privateKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.PrivateKey">
+            <summary>PrivateKey</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng._publicKey">
+            <summary>_publicKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.PublicKey">
+            <summary>PublicKey</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.#ctor(Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.#ctor(System.Byte[])">
+            <summary>Constructor</summary>
+            <param name="publicKey">公開鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.#ctor(System.Security.Cryptography.CngKey,System.Boolean)">
+            <summary>Constructor</summary>
+            <param name="cngKey">任意鍵</param>
+            <param name="isPrivate">秘密鍵か否か</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.#ctor(System.Security.Cryptography.ECParameters,System.Boolean)">
+            <summary>Constructor</summary>
+            <param name="ecp">任意鍵</param>
+            <param name="isPrivate">秘密鍵か否か</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.Sign(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.Verify(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.SignByFormatter(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaCng.VerifyByDeformatter(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl">
+            <summary>DigitalSignECDsaOpenSslクラス</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl._privateKey">
+            <summary>_privateKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.PrivateKey">
+            <summary>PrivateKey</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl._publicKey">
+            <summary>_publicKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.PublicKey">
+            <summary>PublicKey</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.#ctor(Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm,System.Security.Cryptography.HashAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+            <param name="hashAlgorithm">HashAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.#ctor(System.Security.Cryptography.ECParameters,System.Security.Cryptography.HashAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="eCParameters">ECParameters（任意）</param>
+            <param name="hashAlgorithm">HashAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.Sign(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.Verify(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.SignByFormatter(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaOpenSsl.VerifyByDeformatter(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509">
+            <summary>DigitalSignECDsaX509クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.X509Certificate">
+            <summary>X.509証明書</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.PrivateKey">
+            <summary>ECDsa PrivateKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.PublicKey">
+            <summary>ECDsa PublicKey</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.#ctor(System.String,System.String,System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>
+            Constructor
+            X.509証明書(*.pfx, *.cer)からキーを設定する。
+            *.cer証明書の場合は、証明書チェーンが繋がっている必要がある。
+            自己証明書の場合「信頼されたルート証明機関」にInstallするなどする。
+            </summary>
+            <param name="certificateFilePath">X.509証明書(*.pfx, *.cer)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="hashAlgorithmName">HashAlgorithmName</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.Sign(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.Verify(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.SignByFormatter(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignECDsaX509.VerifyByDeformatter(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSignParam">
+            <summary>
+            DigitalSignXMLクラス
+            - RSACryptoServiceProvider:
+              MD5, SHA1, SHA256, SHA384, SHA512
+            - DSACryptoServiceProvider:SHA1
+            だけ、サポート。
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignParam.PrivateKey">
+            <summary>PrivateKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignParam.PublicKey">
+            <summary>PublicKey</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignParam.#ctor(Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignParam.#ctor(System.Security.Cryptography.RSAParameters,Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="rsaParameters">RSAParameters</param>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignParam.#ctor(System.Security.Cryptography.DSAParameters,Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="dsaParameters">DSAParameters</param>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignParam.MyDispose(System.Boolean)">
+            <summary>MyDispose (派生の末端を呼ぶ)</summary>
+            <param name="isDisposing">isDisposing</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSignX509">
+            <summary>
+            DigitalSignX509クラス
+            - RSACryptoServiceProvider:
+              MD5, SHA1, SHA256, SHA384, SHA512
+            - DSACryptoServiceProvider:SHA1
+            だけ、サポート。
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignX509.X509Certificate">
+            <summary>X.509証明書</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignX509.PrivateKey">
+            <summary>X.509証明書の秘密鍵</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignX509.PublicKey">
+            <summary>X.509証明書の公開鍵</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.#ctor(System.String,System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>
+            Constructor
+            X.509証明書(*.pfx, *.cer)からキーを設定する。
+            *.cer証明書の場合は、証明書チェーンが繋がっている必要がある。
+            自己証明書の場合「信頼されたルート証明機関」にInstallするなどする。
+            </summary>
+            <param name="certificateFilePath">X.509証明書(*.pfx, *.cer)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="hashAlgorithmName">
+            RSAの場合、以下からHashAlgorithm名を指定する。
+            MD5, SHA1, SHA256, SHA384, SHA512
+            </param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.#ctor(System.String,System.String,System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>
+            Constructor
+            X.509証明書(*.pfx, *.cer)からキーを設定する。
+            *.cer証明書の場合は、証明書チェーンが繋がっている必要がある。
+            自己証明書の場合「信頼されたルート証明機関」にInstallするなどする。
+            </summary>
+            <param name="certificateFilePath">X.509証明書(*.pfx, *.cer)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="hashAlgorithmName">HashAlgorithmName</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.Sign(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.Verify(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.SignByFormatter(System.Byte[])">
+            <summary>デジタル署名を作成する</summary>
+            <param name="data">デジタル署名を行なう対象データ</param>
+            <returns>対象データに対してデジタル署名したデジタル署名部分のデータ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.VerifyByDeformatter(System.Byte[],System.Byte[])">
+            <summary>デジタル署名を検証する</summary>
+            <param name="data">デジタル署名を行なった対象データ</param>
+            <param name="sign">対象データに対してデジタル署名したデジタル署名部分のデータ</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.Prepare">
+            <summary>準備</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.GetPrivateKey">
+            <summary>GetPrivateKey</summary>
+            <returns>AsymmetricAlgorithm</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignX509.GetPublicKey">
+            <summary>GetPublicKey</summary>
+            <returns>AsymmetricAlgorithm</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.DigitalSignXML">
+            <summary>
+            DigitalSignXMLクラス
+            - RSACryptoServiceProvider:
+              MD5, SHA1, SHA256, SHA384, SHA512
+            - DSACryptoServiceProvider:SHA1
+            だけ、サポート。
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignXML.PrivateKey">
+            <summary>PrivateKey</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.DigitalSignXML.PublicKey">
+            <summary>PublicKey</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignXML.#ctor(Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignXML.#ctor(System.String,Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="xmlKey">string</param>
+            <param name="eaa">EnumDigitalSignAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.DigitalSignXML.MyDispose(System.Boolean)">
+            <summary>MyDispose (派生の末端を呼ぶ)</summary>
+            <param name="isDisposing">isDisposing</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm">
+            <summary>
+            非対称アルゴリズムによる暗号化の列挙型
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm.RsaCsp">
+            <summary>RSACryptoServiceProvider</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm.RsaCng">
+            <summary>RSACryptographyNextGeneration</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm.RsaOpenSsl">
+            <summary>RSAOpenSsl</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm.X509">
+            <summary>X509（自動）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm">
+            <summary>デジタル署名アルゴリズムの列挙型</summary>
+            <remarks>コンストラクタで使用している。</remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.Rsa_MD5">
+            <summary>RSA:MD5</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.Rsa_SHA1">
+            <summary>RSA:SHA1</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.Rsa_SHA256">
+            <summary>RSA:SHA256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.Rsa_SHA384">
+            <summary>RSA:SHA384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.Rsa_SHA512">
+            <summary>RSA:SHA512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.DsaCSP_SHA1">
+            <summary>DSACryptoServiceProvider:SHA1</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.ECDsaCng_P256">
+            <summary>ECDsaCng:P256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.ECDsaCng_P384">
+            <summary>ECDsaCng:P384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.ECDsaCng_P521">
+            <summary>ECDsaCng:P521</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.DsaOpenSsl_SHA256">
+            <summary>DSAOpenSsl:SHA256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.ECDsaOpenSsl_P256">
+            <summary>ECDsaOpenSsl:P256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.ECDsaOpenSsl_P384">
+            <summary>ECDsaOpenSsl:P384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumDigitalSignAlgorithm.ECDsaOpenSsl_P521">
+            <summary>ECDsaOpenSsl:P521</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm">
+            <summary>
+            ハッシュアルゴリズムのサービスプロバイダの種類
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.Default">
+            <summary>Default</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.MD5">
+            <summary>MD5</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.SHA1">
+            <summary>SHA1</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.SHA256">
+            <summary>SHA256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.SHA384">
+            <summary>SHA384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.SHA512">
+            <summary>SHA512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHashAlgorithm.RIPEMD160_M">
+            <summary>RIPEMD160Managed</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.EnumHttpAuthHeader">
+            <summary>EnumHttpAuthHeader</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHttpAuthHeader.None">
+            <summary>None</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHttpAuthHeader.Basic">
+            <summary>Basic</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumHttpAuthHeader.Bearer">
+            <summary>Bearer</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm">
+            <summary>
+            ハッシュ（キー付き）アルゴリズムのサービスプロバイダの種類
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.Default">
+            <summary>Default</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.HMACMD5">
+            <summary>HMACMD5</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.HMACRIPEMD160">
+            <summary>HMACRIPEMD160</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.HMACSHA1">
+            <summary>HMACSHA1</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.HMACSHA256">
+            <summary>HMACSHA256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.HMACSHA384">
+            <summary>HMACSHA384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.HMACSHA512">
+            <summary>HMACSHA512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm.MACTripleDES">
+            <summary>MACTripleDES</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm">
+            <summary>
+            対称アルゴリズムによる暗号化の列挙型
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.AES">
+            <summary>AES</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.DES">
+            <summary>DES</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.RC2">
+            <summary>RC2</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.TDES">
+            <summary>TripleDES</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.AES_CNG">
+            <summary>AesCryptographyNextGeneration</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.TDES_CNG">
+            <summary>TripleDESCryptographyNextGeneration</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.CipherMode_CBC">
+            <summary>CipherMode.CBC</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.CipherMode_CFB">
+            <summary>CipherMode.CFB</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.CipherMode_CTS">
+            <summary>CipherMode.CTS</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.CipherMode_ECB">
+            <summary>CipherMode.ECB</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.CipherMode_OFB">
+            <summary>CipherMode.OFB</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.PaddingMode_None">
+            <summary>PaddingMode.None</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.PaddingMode_Zeros">
+            <summary>PaddingMode.Zeros</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.PaddingMode_ANSIX923">
+            <summary>PaddingMode.ANSIX923</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.PaddingMode_ISO10126">
+            <summary>PaddingMode.ISO10126</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm.PaddingMode_PKCS7">
+            <summary>PaddingMode.PKCS7</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.GetHash">
+            <summary>ハッシュを取得するクラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetHash.GetHashString(System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm)">
+            <summary>文字列のハッシュ値を計算して返す。</summary>
+            <param name="sourceString">文字列</param>
+            <param name="eha">ハッシュ・アルゴリズム列挙型</param>
+            <returns>ハッシュ値（文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetHash.GetHashString(System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm,System.Int32)">
+            <summary>文字列のハッシュ値を計算して返す。</summary>
+            <param name="sourceString">文字列</param>
+            <param name="eha">ハッシュ・アルゴリズム列挙型</param>
+            <param name="stretchCount">ストレッチ回数</param>
+            <returns>ハッシュ値（文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetHash.GetHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumHashAlgorithm)">
+            <summary>バイト配列のハッシュ値を計算して返す。</summary>
+            <param name="asb">バイト配列</param>
+            <param name="eha">ハッシュ・アルゴリズム列挙型</param>
+            <returns>ハッシュ値（バイト配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetHash.GetHashBytes_org(System.Byte[],Touryo.Infrastructure.Public.Security.EnumHashAlgorithm)">
+            <summary>
+            バイト配列のハッシュ値を計算して返す
+            （StretchCount = 1 の 下位互換用）。
+            </summary>
+            <param name="asb">バイト配列</param>
+            <param name="eha">ハッシュ・アルゴリズム列挙型</param>
+            <returns>ハッシュ値（バイト配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetHash.GetHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumHashAlgorithm,System.Int32)">
+            <summary>バイト配列のハッシュ値を計算して返す。</summary>
+            <param name="asb">バイト配列</param>
+            <param name="eha">ハッシュ・アルゴリズム列挙型</param>
+            <param name="stretchCount">ストレッチ回数</param>
+            <returns>ハッシュ値（バイト配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetHash.GetDigestBytesByBC(System.Byte[],Org.BouncyCastle.Crypto.IDigest)">
+            <summary>BouncyCastleで、各種IDigestのハッシュ値を計算して返す。</summary>
+            <param name="data">データ（バイト配列）</param>
+            <param name="digest">IDigest</param>
+            <returns>ハッシュ値（バイト配列）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.GetKeyedHash">
+            <summary>ハッシュ（キー付き）を取得するクラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetKeyedHash.GetKeyedHashString(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String)">
+            <summary>文字列のハッシュ値を計算して返す。</summary>
+            <param name="data">データ（文字列）</param>
+            <param name="ekha">ハッシュ（キー付き）アルゴリズム列挙型</param>
+            <param name="key">キー（文字列）</param>
+            <returns>ハッシュ値（base64文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetKeyedHash.GetKeyedHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.Byte[])">
+            <summary>バイト配列のハッシュ値を計算して返す。</summary>
+            <param name="data">データ（バイト配列）</param>
+            <param name="ekha">ハッシュ（キー付き）アルゴリズム列挙型</param>
+            <param name="key">キー（バイト配列）</param>
+            <returns>ハッシュ値（バイト配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.GetKeyedHash.GetMacBytesByBC(System.Byte[],System.Byte[],Org.BouncyCastle.Crypto.IMac)">
+            <summary>BouncyCastleでMacのハッシュ値を計算して返す。</summary>
+            <param name="data">データ（バイト配列）</param>
+            <param name="key">キー（バイト配列）</param>
+            <param name="mac">IMac</param>
+            <returns>ハッシュ値（バイト配列）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.HashAlgorithmCmnFunc">
+            <summary>HashAlgorithmCmnFuncクラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.HashAlgorithmCmnFunc.GetHashAlgorithmName(System.Security.Cryptography.HashAlgorithm)">
+            <summary>GetHashAlgorithmName</summary>
+            <param name="ha">HashAlgorithm</param>
+            <returns>HashAlgorithmName</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.HashAlgorithmCmnFunc.GetHashAlgorithmFromNameString">
+            <summary>GetHashAlgorithmFromNameString</summary>
+            <returns>HashAlgorithm</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.HashAlgorithmCmnFunc.GetHashAlgorithmFromNameString(System.String)">
+            <summary>GetHashAlgorithmFromNameString</summary>
+            <param name="hashAlgorithmName">string</param>
+            <returns>HashAlgorithm</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.HashAlgorithmCmnFunc.CreateHashAlgorithmSP(Touryo.Infrastructure.Public.Security.EnumHashAlgorithm)">
+            <summary>ハッシュ（キー無し）サービスプロバイダの生成</summary>
+            <param name="eha">ハッシュ（キー無し）サービスプロバイダの列挙型</param>
+            <returns>ハッシュ（キー無し）サービスプロバイダ</returns>
+            <remarks>
+            EnumHashAlgorithmから、HashAlgorithmを生成するために追加。
+            HashAlgorithm.Create(HashNameConst.SHA256) は .NET Core 2 で動作せず。
+            - KeyedHashAlgorithm.Create("HMACSHA1") throw PNSE (on .NET Core 2
+              https://github.com/dotnet/standard/issues/530#issuecomment-375043416
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.HashAlgorithmCmnFunc.CreateKeyedHashAlgorithmSP(Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.Byte[])">
+            <summary>ハッシュ（キー付き）サービスプロバイダの生成</summary>
+            <param name="ekha">ハッシュ（キー付き）サービスプロバイダの列挙型</param>
+            <param name="key">キー</param>
+            <returns>ハッシュ（キー付き）サービスプロバイダ</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.HashNameConst">
+            <summary>ハッシュ名定数</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.HashNameConst.MD5">
+            <summary>MD5</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.HashNameConst.SHA1">
+            <summary>SHA1</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.HashNameConst.SHA256">
+            <summary>SHA256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.HashNameConst.SHA384">
+            <summary>SHA384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.HashNameConst.SHA512">
+            <summary>SHA512</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter">
+            <summary>ECC関係のカギ変換処理を実装する。</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.ESnnn">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.JwtConstESnnn">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.HashAlgorithmName">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.HashAlgorithm">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.ECCurveDic">
+            <summary>ECCurveDic</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.#ctor(Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES)">
+            <summary>constructor</summary>
+            <param name="esNNN">JWS_ECDSA.ES</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.GetECCurveFromCrvString(System.String)">
+            <summary>GetECCurveFromCrvString</summary>
+            <param name="crvString">string</param>
+            <returns>ECCurve</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.GetCrvStringFromECCurve(System.Security.Cryptography.ECCurve)">
+            <summary>GetCrvStringFromECCurve</summary>
+            <param name="ecc">ECCurve</param>
+            <returns>crvの文字列値（P-nnn）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.GetCrvStringFromXCoordinate(System.Byte[])">
+            <summary>GetCrvString</summary>
+            <param name="x">byte[]</param>
+            <returns>CrvString</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccKeyConverter.CreateJwkFromDictionary(System.Collections.Generic.Dictionary{System.String,System.String},Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>CreateJwkFromDictionary</summary>
+            <param name="dic">Dictionary</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>JwkString</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.EccPrivateKeyConverter">
+            <summary>
+            ECC関係のカギ変換処理を実装する。
+            秘密鍵用のミニマム実装
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPrivateKeyConverter.#ctor(Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES)">
+            <summary>constructor</summary>
+            <param name="esNNN">JWS_ECDSA.ES</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPrivateKeyConverter.ParamToJwk(System.Security.Cryptography.ECParameters)">
+            <summary>ParamToJwk</summary>
+            <param name="ecParams">ECParameters</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPrivateKeyConverter.ParamToJwk(System.Security.Cryptography.ECParameters,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>ParamToJwk</summary>
+            <param name="ecParams">ECParameters</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPrivateKeyConverter.JwkToParam(System.String)">
+            <summary>JwkToParam</summary>
+            <param name="jwkString">string</param>
+            <returns>ECParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPrivateKeyConverter.JwkToParam(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>JwkToParam</summary>
+            <param name="jwk">JObject</param>
+            <returns>ECParameters（公開鍵）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter">
+            <summary>
+            ECC関係のカギ変換処理を実装する。
+            基本的に変換先は公開鍵。変換元は秘密鍵も扱える。
+            X.509 → ECDsa（Cngkey, ECParameters）（公開鍵）⇔ Jwk 公開鍵
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.#ctor(Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES)">
+            <summary>constructor</summary>
+            <param name="esNNN">JWS_ECDSA.ES</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509CerToJwk(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>X509CerToJwk</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509CerToCngkey(System.String)">
+            <summary>X509CerToCngkey</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <returns>CngKey（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509CerToECParam(System.String)">
+            <summary>X509CerToECParam</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <returns>ECParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509CerToProvider(System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509CerToProvider</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>ECDsa（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509PfxToJwk(System.String,System.String,System.Security.Cryptography.HashAlgorithmName,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>X509CerToJwk</summary>
+            <param name="certificateFilePath">X.509鍵(*.pfx)</param>
+            <param name="password">string</param>
+            <param name="hashAlgorithmName">HashAlgorithmName</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509PfxToParam(System.String,System.String,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>X509PfxToParam</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="password">string</param>
+            <param name="hashAlgorithmName">HashAlgorithmName</param>
+            <returns>ECParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.X509PfxToProvider(System.String,System.String,System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509CerToProvider</summary>
+            <param name="certificateFilePath">X.509鍵(*.pfx)</param>
+            <param name="password">string</param>
+            <param name="hashAlgorithmName">HashAlgorithmName</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>ECDsa（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.JwkToCng(System.String)">
+            <summary>JwkToCng</summary>
+            <param name="jwkString">string</param>
+            <returns>CngKey（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.JwkToCng(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>JwkToCng</summary>
+            <param name="jwk">JObject</param>
+            <returns>CngKey（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.ParamToJwk(System.Security.Cryptography.ECParameters,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>ParamToJwk</summary>
+            <param name="ecParams">ECParameters</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.JwkToParam(System.String)">
+            <summary>JwkToParam</summary>
+            <param name="jwkString">string</param>
+            <returns>ECParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.EccPublicKeyConverter.JwkToParam(Newtonsoft.Json.Linq.JObject)">
+            <summary>JwkToParam</summary>
+            <param name="jwkObject">JObject</param>
+            <returns>ECParameters（公開鍵）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE">
+            <summary>JWE</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWE.JWEHeader">
+            <summary>_JWEHeader</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWE.CekByteLength">
+            <summary>CekByteLength</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWE.IvByteLength">
+            <summary>IvByteLength</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWE.ASymmetricCryptography">
+            <summary>ASymmetricCryptography</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE.Create(System.String)">
+            <summary>JWE生成メソッド</summary>
+            <param name="payloadJson">ペイロード部のJson文字列</param>
+            <returns>JWEの文字列表現</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE.Decrypt(System.String,System.String@)">
+            <summary>JWE復号メソッド</summary>
+            <param name="jwtString">JWEの文字列表現</param>
+            <param name="payloadJson">ペイロード部のJson文字列</param>
+            <returns>復号の結果</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE.CreateKey(System.Byte[])">
+            <summary>CEK 暗号化</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE.DecryptKey(System.Byte[])">
+            <summary>CEK 復号化</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[] </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE.CreateBody(System.Byte[],System.Byte[],System.Byte[],System.Byte[])">
+            <summary>認証付き暗号（AEAD）による本文 暗号化</summary>
+            <param name="cekBytes">コンテンツ暗号化キー（CEK）</param>
+            <param name="ivBytes">初期化ベクトル</param>
+            <param name="aadBytes">追加認証データ（AAD）</param>
+            <param name="payloadBytes">ペイロード</param>
+            <returns>AeadResult</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE.DecryptBody(System.Byte[],System.Byte[],System.Byte[],Touryo.Infrastructure.Public.Security.Aead.AeadResult)">
+            <summary>認証付き暗号（AEAD）による本文 復号化</summary>
+            <param name="cekBytes"></param>
+            <param name="ivBytes"></param>
+            <param name="aadBytes"></param>
+            <param name="aeadResult"></param>
+            <returns>byte[] </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_Header">
+            <summary>JWE Header</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWE_Header.alg">
+            <summary>
+            alg=RSA-OAEP
+            JWEの鍵交換アルゴリズムを指定する。
+            A256GCMの鍵交換アルゴリズムのみサポート。
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWE_Header.enc">
+            <summary>
+            alg=A256GCM
+            JWEの暗号化アルゴリズムを指定する。
+            A256GCMの暗号化アルゴリズムのみサポート。
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWE_Header.typ">
+            <summary>
+            typ=JWT(JWSもJWTらしい)
+            アサーションのタイプを指定。JWT固定。
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256">
+            <summary>JWE RSAES-PKCS1-v1_5 and AES_128_CBC_HMAC_SHA_256生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256.CreateKey(System.Byte[])">
+            <summary>CEK 暗号化</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256.DecryptKey(System.Byte[])">
+            <summary>CEK 復号化</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[] </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256.CreateBody(System.Byte[],System.Byte[],System.Byte[],System.Byte[])">
+            <summary>認証付き暗号（AEAD）による本文 暗号化</summary>
+            <param name="cekBytes">コンテンツ暗号化キー（CEK）</param>
+            <param name="ivBytes">初期化ベクトル</param>
+            <param name="aadBytes">追加認証データ（AAD）</param>
+            <param name="payloadBytes">ペイロード</param>
+            <returns>AeadResult</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256.DecryptBody(System.Byte[],System.Byte[],System.Byte[],Touryo.Infrastructure.Public.Security.Aead.AeadResult)">
+            <summary>認証付き暗号（AEAD）による本文 復号化</summary>
+            <param name="cekBytes">コンテンツ暗号化キー（CEK）</param>
+            <param name="ivBytes">初期化ベクトル</param>
+            <param name="aadBytes">追加認証データ（AAD）</param>
+            <param name="aeadResult">AeadResult</param>
+            <returns>byte[] </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_Param">
+            <summary>ParamによるJWE RSAES-PKCS1-v1_5 and AES_128_CBC_HMAC_SHA_256生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_Param.#ctor(Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="algorithm">EnumASymmetricAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_Param.#ctor(Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm,System.Security.Cryptography.RSAParameters)">
+            <summary>Constructor</summary>
+            <param name="algorithm">EnumASymmetricAlgorithm</param>
+            <param name="param">RSAParameters</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_X509">
+            <summary>X.509証明書によるJWE RSAES-PKCS1-v1_5 and AES_128_CBC_HMAC_SHA_256生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_Rsa15A128CbcHS256_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">ASymmetricCryptographyに渡すcertificateFilePathパラメタ</param>
+            <param name="password">ASymmetricCryptographyに渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm">
+            <summary>JWE RSAES-OAEP and AES GCM生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm.CreateKey(System.Byte[])">
+            <summary>CEK 暗号化</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm.DecryptKey(System.Byte[])">
+            <summary>CEK 復号化</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[] </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm.CreateBody(System.Byte[],System.Byte[],System.Byte[],System.Byte[])">
+            <summary>認証付き暗号（AEAD）による本文 暗号化</summary>
+            <param name="cekBytes">コンテンツ暗号化キー（CEK）</param>
+            <param name="ivBytes">初期化ベクトル</param>
+            <param name="aadBytes">追加認証データ（AAD）</param>
+            <param name="payloadBytes">ペイロード</param>
+            <returns>AeadResult</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm.DecryptBody(System.Byte[],System.Byte[],System.Byte[],Touryo.Infrastructure.Public.Security.Aead.AeadResult)">
+            <summary>認証付き暗号（AEAD）による本文 復号化</summary>
+            <param name="cekBytes">コンテンツ暗号化キー（CEK）</param>
+            <param name="ivBytes">初期化ベクトル</param>
+            <param name="aadBytes">追加認証データ（AAD）</param>
+            <param name="aeadResult">AeadResult</param>
+            <returns>byte[] </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_Param">
+            <summary>ParamによるJWE RSAES-OAEP and AES GCM生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_Param.#ctor(Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="algorithm">EnumASymmetricAlgorithm</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_Param.#ctor(Touryo.Infrastructure.Public.Security.EnumASymmetricAlgorithm,System.Security.Cryptography.RSAParameters)">
+            <summary>Constructor</summary>
+            <param name="algorithm">EnumASymmetricAlgorithm</param>
+            <param name="param">RSAParameters</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_X509">
+            <summary>X.509証明書によるJWE RSAES-OAEP and AES GCM生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWE_RsaOaepAesGcm_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">ASymmetricCryptographyに渡すcertificateFilePathパラメタ</param>
+            <param name="password">ASymmetricCryptographyに渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JwkSet">
+            <summary>JwkSet</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwkSet.keys">
+            <summary>keys</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JwkSet.LoadJwkSet(System.String)">
+            <summary>LoadJwkSet</summary>
+            <param name="jwkSetFilePath">string</param>
+            <returns>JwkSet</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JwkSet.SaveJwkSet(System.String,Touryo.Infrastructure.Public.Security.Jwt.JwkSet)">
+            <summary>SaveJwkSet</summary>
+            <param name="jwkSetFilePath">string</param>
+            <param name="jwkSetObject">JwkSet</param>
+            <returns>JwkSetString</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JwkSet.GetJwkObject(Touryo.Infrastructure.Public.Security.Jwt.JwkSet,System.String)">
+            <summary>GetJwkObject</summary>
+            <param name="jwkSetObject">JwkSet</param>
+            <param name="kid">string</param>
+            <returns>JObject</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JwkSet.AddJwkToJwkSet(Touryo.Infrastructure.Public.Security.Jwt.JwkSet,Newtonsoft.Json.Linq.JObject)">
+            <summary>AddJwkToJwkSet</summary>
+            <param name="jwkSetObject">JwkSet</param>
+            <param name="jwkObject">JObject</param>
+            <returns>jwkSetObject</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS">
+            <summary>JWS</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS.Create(System.String)">
+            <summary>JWS生成メソッド</summary>
+            <param name="payloadJson">ペイロード部のJson文字列</param>
+            <returns>JWSの文字列表現</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS.Verify(System.String)">
+            <summary>JWS検証メソッド</summary>
+            <param name="jwtString">JWSの文字列表現</param>
+            <returns>署名の検証結果</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA">
+            <summary>
+            JWS ESnnn生成クラス
+            - ES256 | ECDSA using P-256 and SHA-256
+            - ES384 | ECDSA using P-384 and SHA-384
+            - ES512 | ECDSA using P-521 and SHA-512
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES">
+            <summary>ES</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES._256">
+            <summary>256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES._384">
+            <summary>384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.ES._512">
+            <summary>512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.JwtConstESnnn">
+            <summary>JwtConst.ESnnn</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA._JWSHeader">
+            <summary>_JWSHeader</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.JWSHeader">
+            <summary>JWSHeader</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.Init(System.String)">
+            <summary>Init</summary>
+            <param name="jwtConstESnnn">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.Create(System.String)">
+            <summary>ESnnnのJWS生成メソッド</summary>
+            <param name="payloadJson">ペイロード部のJson文字列</param>
+            <returns>JWSの文字列表現</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.Verify(System.String)">
+            <summary>ESnnnのJWS検証メソッド</summary>
+            <param name="jwtString">JWSの文字列表現</param>
+            <returns>署名の検証結果</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ECDSA.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256">
+            <summary>
+            JWS ES256生成クラス
+            ES256(ECDSA using P-256 and SHA-256)
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256.DigitalSignAlgorithm">
+            <summary>EnumDigitalSignAlgorithm</summary>
+            <remarks>Constructorで使うのでstaticとなった</remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param">
+            <summary>ParamによるJWS ES256生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.DigitalSignECDsaCng">
+            <summary>DigitalSignECDsaCng</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.DigitalSignECDsaOpenSsl">
+            <summary>DigitalSignECDsaOpenSsl</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.os">
+            <summary>OperatingSystem</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.ECDsaPrivateParameters">
+            <summary>秘密鍵のECParameters</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.ECDsaPublicParameters">
+            <summary>公開鍵のECParameters</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.#ctor(System.Security.Cryptography.ECParameters,System.Boolean)">
+            <summary>Constructor</summary>
+            <param name="param">ECParameters</param>
+            <param name="isPrivate">bool</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_Param.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509">
+            <summary>X.509証明書によるJWS ES256生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.DigitalSignECDsaX509">
+            <summary>DigitalSignECDsaX509</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.#ctor(System.String,System.String)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignECDsaX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignECDsaX509に渡すpasswordパラメタ</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignECDsaX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignECDsaX509に渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES256_X509.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384">
+            <summary>
+            JWS ES384生成クラス
+            ES384(ECDSA using P-384 and SHA-384)
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384.DigitalSignAlgorithm">
+            <summary>EnumDigitalSignAlgorithm</summary>
+            <remarks>Constructorで使うのでstaticとなった</remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param">
+            <summary>ParamによるJWS ES384生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.DigitalSignECDsaCng">
+            <summary>DigitalSignECDsaCng</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.DigitalSignECDsaOpenSsl">
+            <summary>DigitalSignECDsaOpenSsl</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.os">
+            <summary>OperatingSystem</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.ECDsaPrivateParameters">
+            <summary>秘密鍵のECParameters</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.ECDsaPublicParameters">
+            <summary>公開鍵のECParameters</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.#ctor(System.Security.Cryptography.ECParameters,System.Boolean)">
+            <summary>Constructor</summary>
+            <param name="param">ECParameters</param>
+            <param name="isPrivate">bool</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_Param.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509">
+            <summary>X.509証明書によるJWS ES384生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.DigitalSignECDsaX509">
+            <summary>DigitalSignECDsaX509</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.#ctor(System.String,System.String)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignECDsaX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignECDsaX509に渡すpasswordパラメタ</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignECDsaX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignECDsaX509に渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES384_X509.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512">
+            <summary>
+            JWS ES512生成クラス
+            ES512(ECDSA using P-512 and SHA-512)
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512.DigitalSignAlgorithm">
+            <summary>EnumDigitalSignAlgorithm</summary>
+            <remarks>Constructorで使うのでstaticとなった</remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param">
+            <summary>ParamによるJWS ES512生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.DigitalSignECDsaCng">
+            <summary>DigitalSignECDsaCng</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.DigitalSignECDsaOpenSsl">
+            <summary>DigitalSignECDsaOpenSsl</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.os">
+            <summary>OperatingSystem</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.ECDsaPrivateParameters">
+            <summary>秘密鍵のECParameters</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.ECDsaPublicParameters">
+            <summary>公開鍵のECParameters</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.#ctor(System.Security.Cryptography.ECParameters,System.Boolean)">
+            <summary>Constructor</summary>
+            <param name="param">ECParameters</param>
+            <param name="isPrivate">bool</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_Param.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509">
+            <summary>X.509証明書によるJWS ES512生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.DigitalSignECDsaX509">
+            <summary>DigitalSignECDsaX509</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.#ctor(System.String,System.String)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignECDsaX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignECDsaX509に渡すpasswordパラメタ</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignECDsaX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignECDsaX509に渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_ES512_X509.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_Header">
+            <summary>JWS Header</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_Header.alg">
+            <summary>
+            alg=HS256 or RS256 or ES256
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_Header.jku">
+            <summary>
+            jku=JWK Set URL
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_Header.kid">
+            <summary>
+            kid=Jwk鍵のID
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_Header.typ">
+            <summary>
+            typ=JWT(JWSもJWTらしい)
+            アサーションのタイプを指定。JWT固定。
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA">
+            <summary>RSnnn JWS生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.Key">
+            <summary>キー</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.JWK">
+            <summary>検証用JWK</summary>
+            <remarks>https://mkjwk.org</remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.JwtConstHSnnn">
+            <summary>JwtConst.HSnnn</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.Init(System.Byte[])">
+            <summary>Init</summary>
+            <param name="key">byte[]</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.Init(System.String)">
+            <summary>Init</summary>
+            <param name="jwkString">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.CreateHMACSHA(System.Byte[])">
+            <summary>HMACSHA生成</summary>
+            <param name="key">byte[]</param>
+            <returns>HMAC</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.Create(System.String)">
+            <summary>HSXXXのJWS生成メソッド</summary>
+            <param name="payloadJson">ペイロード部のJson文字列</param>
+            <returns>JWSの文字列表現</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HMACSHA.Verify(System.String)">
+            <summary>HSXXXのJWS検証メソッド</summary>
+            <param name="jwtString">JWSの文字列表現</param>
+            <returns>署名の検証結果</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS256">
+            <summary>HS256 JWS生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS256.#ctor(System.Byte[])">
+            <summary>Constructor</summary>
+            <param name="key">byte[]</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS256.#ctor(System.String)">
+            <summary>Constructor</summary>
+            <param name="jwkString">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS256.CreateHMACSHA(System.Byte[])">
+            <summary>HMACSHA256生成</summary>
+            <param name="key">byte[]</param>
+            <returns>HMACSHA256</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS384">
+            <summary>HS384 JWS生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS384.#ctor(System.Byte[])">
+            <summary>Constructor</summary>
+            <param name="key">byte[]</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS384.#ctor(System.String)">
+            <summary>Constructor</summary>
+            <param name="jwkString">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS384.CreateHMACSHA(System.Byte[])">
+            <summary>HMACSHA384生成</summary>
+            <param name="key">byte[]</param>
+            <returns>HMACSHA384</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS512">
+            <summary>HS512 JWS生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS512.#ctor(System.Byte[])">
+            <summary>Constructor</summary>
+            <param name="key">byte[]</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS512.#ctor(System.String)">
+            <summary>Constructor</summary>
+            <param name="jwkString">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_HS512.CreateHMACSHA(System.Byte[])">
+            <summary>HMACSHA512生成</summary>
+            <param name="key">byte[]</param>
+            <returns>HMACSHA512</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256">
+            <summary>JWS RS256生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256.DigitalSignAlgorithm">
+            <summary>EnumDigitalSignAlgorithm</summary>
+            <remarks>Constructorで使うのでstaticとなった</remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param">
+            <summary>ParamによるJWS RS256生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.DigitalSignParam">
+            <summary>DigitalSignParam</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.RsaPrivateParameters">
+            <summary>秘密鍵のRSAParameters</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.RsaPublicParameters">
+            <summary>公開鍵のRSAParameters</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.#ctor(System.Security.Cryptography.RSAParameters)">
+            <summary>Constructor</summary>
+            <param name="param">RSAParameters</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_Param.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509">
+            <summary>X.509証明書によるJWS RS256生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509.DigitalSignX509">
+            <summary>DigitalSignX509</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignX509に渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_X509.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML">
+            <summary>XMLによるJWS RS256生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.XMLPublicKey">
+            <summary>公開鍵</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.XMLPrivateKey">
+            <summary>秘密鍵</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.DigitalSignXML">
+            <summary>DigitalSignXML</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.#ctor(System.String)">
+            <summary>Constructor</summary>
+            <param name="xmlKey">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS256_XML.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384">
+            <summary>JWS RS384生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384.DigitalSignAlgorithm">
+            <summary>EnumDigitalSignAlgorithm</summary>
+            <remarks>Constructorで使うのでstaticとなった</remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param">
+            <summary>ParamによるJWS RS384生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.DigitalSignParam">
+            <summary>DigitalSignParam</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.RsaPrivateParameters">
+            <summary>秘密鍵のRSAParameters</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.RsaPublicParameters">
+            <summary>公開鍵のRSAParameters</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.#ctor(System.Security.Cryptography.RSAParameters)">
+            <summary>Constructor</summary>
+            <param name="param">RSAParameters</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_Param.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509">
+            <summary>X.509証明書によるJWS RS384生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509.DigitalSignX509">
+            <summary>DigitalSignX509</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignX509に渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_X509.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML">
+            <summary>XMLによるJWS RS384生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.XMLPublicKey">
+            <summary>公開鍵</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.XMLPrivateKey">
+            <summary>秘密鍵</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.DigitalSignXML">
+            <summary>DigitalSignXML</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.#ctor(System.String)">
+            <summary>Constructor</summary>
+            <param name="xmlKey">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS384_XML.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512">
+            <summary>JWS RS512生成クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512.DigitalSignAlgorithm">
+            <summary>EnumDigitalSignAlgorithm</summary>
+            <remarks>Constructorで使うのでstaticとなった</remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param">
+            <summary>ParamによるJWS RS512生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.DigitalSignParam">
+            <summary>DigitalSignParam</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.RsaPrivateParameters">
+            <summary>秘密鍵のRSAParameters</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.RsaPublicParameters">
+            <summary>公開鍵のRSAParameters</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.#ctor(System.Security.Cryptography.RSAParameters)">
+            <summary>Constructor</summary>
+            <param name="param">RSAParameters</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_Param.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509">
+            <summary>X.509証明書によるJWS RS512生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509.CertificateFilePath">
+            <summary>CertificateFilePath</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509.CertificatePassword">
+            <summary>CertificatePassword</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509.DigitalSignX509">
+            <summary>DigitalSignX509</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>Constructor</summary>
+            <param name="certificateFilePath">DigitalSignX509に渡すcertificateFilePathパラメタ</param>
+            <param name="password">DigitalSignX509に渡すpasswordパラメタ</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_X509.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML">
+            <summary>XMLによるJWS RS512生成クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.XMLPublicKey">
+            <summary>公開鍵</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.XMLPrivateKey">
+            <summary>秘密鍵</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.DigitalSignXML">
+            <summary>DigitalSignXML</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.#ctor(System.String)">
+            <summary>Constructor</summary>
+            <param name="xmlKey">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RS512_XML.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA">
+            <summary>
+            JWS RSnnn生成クラス
+            - RS256 | RSASSA-PKCS1-v1_5 using SHA-256
+            - RS384 | RSASSA-PKCS1-v1_5 using SHA-384
+            - RS512 | RSASSA-PKCS1-v1_5 using SHA-512
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS">
+            <summary>RS</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS._256">
+            <summary>256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS._384">
+            <summary>384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS._512">
+            <summary>512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.JwtConstRSnnn">
+            <summary>JwtConst.RSnnn</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA._JWSHeader">
+            <summary>_JWSHeader</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.JWSHeader">
+            <summary>JWSHeader</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.Init(System.String)">
+            <summary>Init</summary>
+            <param name="jwtConstRSnnn">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.Create(System.String)">
+            <summary>RSnnnのJWS生成メソッド</summary>
+            <param name="payloadJson">ペイロード部のJson文字列</param>
+            <returns>JWSの文字列表現</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.Verify(System.String)">
+            <summary>RSnnnのJWS検証メソッド</summary>
+            <param name="jwtString">JWSの文字列表現</param>
+            <returns>署名の検証結果</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.Create2(System.Byte[])">
+            <summary>Create2</summary>
+            <param name="data">byte[]</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.Verify2(System.Byte[],System.Byte[])">
+            <summary>Verify2</summary>
+            <param name="data">byte[]</param>
+            <param name="sign">byte[]</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.JwtConst">
+            <summary>JWT系定数</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.JWT">
+            <summary>type:JWT</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.HS256">
+            <summary>alg:HS256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.HS384">
+            <summary>alg:HS384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.HS512">
+            <summary>alg:HS512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.RS256">
+            <summary>alg:RS256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.RS384">
+            <summary>alg:RS384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.RS512">
+            <summary>alg:RS512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.ES256">
+            <summary>alg:ES256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.ES384">
+            <summary>alg:ES384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.ES512">
+            <summary>alg:ES512</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.RSA_OAEP">
+            <summary>alg:RSA-OAEP</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.A256GCM">
+            <summary>enc:A256GCM</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.RSA1_5">
+            <summary>alg:RSA1_5</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.A128CBC_HS256">
+            <summary>enc:A128CBC-HS256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.keys">
+            <summary>keys</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.kid">
+            <summary>kid: Key IDパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.alg">
+            <summary>alg: algorithmパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.kty">
+            <summary>kty: key typeパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.use">
+            <summary>use : key useパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.k">
+            <summary>Symmetric Keys: k</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.RSA">
+            <summary>kty : RSA</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.n">
+            <summary>RSA Public Key: n</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.e">
+            <summary>RSA Public Key: e</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.d">
+            <summary>
+            d :
+            - RSA Private Key
+            - ECC Private Key
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.p">
+            <summary>p : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.q">
+            <summary>q : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.dp">
+            <summary>dp : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.dq">
+            <summary>dq : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.qi">
+            <summary>qi : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.oth">
+            <summary>oth : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.oth_r">
+            <summary>r(oth) : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.oth_d">
+            <summary>d(oth) : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.oth_t">
+            <summary>t(oth) : RSA Private Key</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.EC">
+            <summary>ktyパラメタ値 : EC</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.crv">
+            <summary>crv : Curveパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.P256">
+            <summary>Curveパラメタ値 : P-256</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.P384">
+            <summary>Curveパラメタ値 : P-384</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.P521">
+            <summary>Curveパラメタ値 : P-521</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.x">
+            <summary>x : X Coordinateパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.JwtConst.y">
+            <summary>y : Y Coordinateパラメタ</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.RsaKeyConverter">
+            <summary>RSA関係のカギ変換処理を実装する。</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.RsaKeyConverter.RSnnn">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.RsaKeyConverter.JwtConstRSnnn">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.RsaKeyConverter.HashName">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Jwt.RsaKeyConverter.HashAlgorithm">
+            <summary>アルゴリズム</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaKeyConverter.#ctor(Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS)">
+            <summary>constructor</summary>
+            <param name="rsNNN">JWS_RSA.RS</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.RsaPrivateKeyConverter">
+            <summary>
+            RSA関係のカギ変換処理を実装する。
+            秘密鍵用のミニマム実装
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPrivateKeyConverter.#ctor(Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS)">
+            <summary>constructor</summary>
+            <param name="rsNNN">JWS_RSA.RS</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPrivateKeyConverter.ParamToJwk(System.Security.Cryptography.RSAParameters)">
+            <summary>ParamToJwk</summary>
+            <param name="rsaParameters">RSAParameters</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPrivateKeyConverter.ParamToJwk(System.Security.Cryptography.RSAParameters,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>ParamToJwk</summary>
+            <param name="rsaParameters">RSAParameters</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPrivateKeyConverter.JwkToParam(System.String)">
+            <summary>JwkToParam</summary>
+            <param name="jwkString">string</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPrivateKeyConverter.JwkToParam(Newtonsoft.Json.Linq.JObject)">
+            <summary>JwkToParam</summary>
+            <param name="jwkObject">JObject</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter">
+            <summary>
+            RSA関係のカギ変換処理を実装する。
+            基本的に変換先は公開鍵。変換元は秘密鍵も扱える。
+            X.509 or Xml 鍵 → RSAProvider(RSAParameters)（公開鍵）⇔ Xml or Jwk 公開鍵
+            </summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.#ctor(Touryo.Infrastructure.Public.Security.Jwt.JWS_RSA.RS)">
+            <summary>constructor</summary>
+            <param name="rsNNN">JWS_RSA.RS</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509CerToXml(System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509CerToXml</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>Xml公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509CerToJwk(System.String,Newtonsoft.Json.JsonSerializerSettings,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509CerToJwk</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509PfxToXml(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509PfxToXml</summary>
+            <param name="certificateFilePath">X.509鍵(*.pfx)</param>
+            <param name="password">string</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>Xml公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509PfxToJwk(System.String,System.String,Newtonsoft.Json.JsonSerializerSettings,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509PfxToJwk</summary>
+            <param name="certificateFilePath">X.509鍵(*.pfx)</param>
+            <param name="password">string</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.XmlToJwk(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>XmlToJwk</summary>
+            <param name="xmlKey">Xml鍵</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509CerToParam(System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509CerToParam</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509CerToProvider(System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509CerToProvider</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>RSA（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509PfxToParam(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509PfxToParam</summary>
+            <param name="certificateFilePath">X.509鍵(*.cer)</param>
+            <param name="password">string</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.X509PfxToProvider(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>X509PfxToProvider</summary>
+            <param name="certificateFilePath">X.509鍵(*.pfx)</param>
+            <param name="password">string</param>
+            <param name="flg">X509KeyStorageFlags</param>
+            <returns>RSA（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.XmlToParam(System.String)">
+            <summary>XmlToParam</summary>
+            <param name="xmlKey">Xml鍵</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.XmlToProvider(System.String)">
+            <summary>XmlToProvider</summary>
+            <param name="xmlKey">Xml鍵</param>
+            <returns>RSA（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.ParamToXml(System.Security.Cryptography.RSAParameters)">
+            <summary>
+            RSAParametersからXml公開鍵へ変換
+            </summary>
+            <param name="param">RSAParameters</param>
+            <returns>Xml公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.XmlToProvider(System.Security.Cryptography.RSAParameters)">
+            <summary>XmlToProvider</summary>
+            <param name="param">RSAParameters</param>
+            <returns>RSA（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.ParamToJwk(System.Security.Cryptography.RSAParameters,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>ParamToJwk</summary>
+            <param name="param">RSAParameters</param>
+            <param name="settings">JsonSerializerSettings</param>
+            <returns>Jwk公開鍵</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.JwkToProvider(System.String)">
+            <summary>JwkToProvider</summary>
+            <param name="jwkString">string</param>
+            <returns>RSA（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.JwkToProvider(Newtonsoft.Json.Linq.JObject)">
+            <summary>JwkToProvider</summary>
+            <param name="jwkObject">JObject</param>
+            <returns>RSA（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.JwkToParam(System.String)">
+            <summary>JwkToParam</summary>
+            <param name="jwkString">string</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Jwt.RsaPublicKeyConverter.JwkToParam(Newtonsoft.Json.Linq.JObject)">
+            <summary>JwkToParam</summary>
+            <param name="jwkObject">JObject</param>
+            <returns>RSAParameters（公開鍵）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange">
+            <summary>キー交換抽象クラス</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange._asa">
+            <summary>AsymmetricAlgorithm</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange._exchangeKey">
+            <summary>相方と交換する交換鍵</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange.ExchangeKey">
+            <summary>相方と交換する交換鍵</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange._aes">
+            <summary>暗号化・復号化に使用する秘密鍵</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange.IV">
+            <summary>初期化ベクター</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange.Decrypt(System.String)">
+            <summary>復号化</summary>
+            <param name="msg">復号化するメッセージ</param>
+            <returns>復号化したメッセージ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange.Decrypt(System.Byte[])">
+            <summary>暗号化</summary>
+            <param name="msg">暗号化するメッセージ</param>
+            <returns>暗号化したメッセージ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange.Encrypt(System.String)">
+            <summary>暗号化</summary>
+            <param name="msg">暗号化するメッセージ</param>
+            <returns>暗号化したメッセージ</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.BaseKeyExchange.Encrypt(System.Byte[])">
+            <summary>暗号化</summary>
+            <param name="msg">暗号化するメッセージ</param>
+            <returns>暗号化したメッセージ</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.EnumKeyExchange">
+            <summary>
+            キー交換アルゴリズムの列挙型
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.EnumKeyExchange.RSAPKCS1KeyExchange">
+            <summary>RSAPKCS1KeyExchange</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.EnumKeyExchange.RSAOAEPKeyExchange">
+            <summary>RSAOAEPKeyExchange</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.EnumKeyExchange.ECDiffieHellmanCryptographyNextGeneration">
+            <summary>ECDiffieHellmanCryptographyNextGeneration</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaAlice">
+            <summary>RSAのAlice抽象クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaAlice.#ctor(System.Byte[])">
+            <summary>constructor</summary>
+            <param name="exchangeKeyOfBob">Bobの交換鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaAlice.#ctor(System.Security.Cryptography.RSAParameters)">
+            <summary>constructor</summary>
+            <param name="exchangeKeyOfBob">Bobの交換鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaAlice.CreateKeys">
+            <summary>
+            Bobの交換鍵から、
+            「暗号化に使用する秘密鍵」と「Bobと交換するAliceの交換鍵」を生成
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaBob">
+            <summary>RSAのBob抽象クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaBob.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaBob.#ctor(System.String,System.String)">
+            <summary>constructor</summary>
+            <param name="rsaPfxFilePath">RSAのX.509証明書(*.pfx)へのパス</param>
+            <param name="password">パスワード</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaBob.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>constructor</summary>
+            <param name="rsaPfxFilePath">RSAのX.509証明書(*.pfx)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaKeyExchange">
+            <summary>RSAのキー交換基本クラス</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.KeyExg.RsaKeyExchange._exchangeKey2">
+            <summary>相方と交換する鍵（RSAParameters）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.KeyExg.RsaKeyExchange.ExchangeKey2">
+            <summary>相方と交換する鍵（RSAParameters）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepAlice">
+            <summary>RSA-OAEPの「Aliceクラス」</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepAlice.#ctor(System.Byte[])">
+            <summary>constructor</summary>
+            <param name="exchangeKeyOfBob">Bobの交換鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepAlice.#ctor(System.Security.Cryptography.RSAParameters)">
+            <summary>constructor</summary>
+            <param name="rsaParams">Bobの交換鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepAlice.CreateKeys">
+            <summary>
+            Bobの交換鍵から、
+            「暗号化に使用する秘密鍵」と「Bobと交換するAliceの交換鍵」を生成
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepBob">
+            <summary>RSA-OAEPの「Bobクラス」</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepBob.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepBob.#ctor(System.String,System.String)">
+            <summary>constructor</summary>
+            <param name="rsaPfxFilePath">RSAのX.509証明書(*.pfx)へのパス</param>
+            <param name="password">パスワード</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepBob.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>constructor</summary>
+            <param name="rsaPfxFilePath">RSAのX.509証明書(*.pfx)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaOaepBob.GeneratePrivateKey(System.Byte[],System.Byte[])">
+            <summary>秘密鍵生成</summary>
+            <param name="exchangeKeyOfAlice">Aliceの交換鍵</param>
+            <param name="iv">初期化ベクター</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Alice">
+            <summary>RSA1_5の「Aliceクラス」</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Alice.#ctor(System.Byte[])">
+            <summary>constructor</summary>
+            <param name="exchangeKeyOfBob">Bobの交換鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Alice.#ctor(System.Security.Cryptography.RSAParameters)">
+            <summary>constructor</summary>
+            <param name="rsaParams">Bobの交換鍵</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Alice.CreateKeys">
+            <summary>
+            Bobの交換鍵から、
+            「暗号化に使用する秘密鍵」と「Bobと交換するAliceの交換鍵」を生成
+            </summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Bob">
+            <summary>RSA1_5の「Bobクラス」</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Bob.#ctor">
+            <summary>constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Bob.#ctor(System.String,System.String)">
+            <summary>constructor</summary>
+            <param name="rsaPfxFilePath">RSAのX.509証明書(*.pfx)へのパス</param>
+            <param name="password">パスワード</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Bob.#ctor(System.String,System.String,System.Security.Cryptography.X509Certificates.X509KeyStorageFlags)">
+            <summary>constructor</summary>
+            <param name="rsaPfxFilePath">RSAのX.509証明書(*.pfx)へのパス</param>
+            <param name="password">パスワード</param>
+            <param name="flag">X509KeyStorageFlags</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.KeyExg.RsaPkcs1Bob.GeneratePrivateKey(System.Byte[],System.Byte[])">
+            <summary>秘密鍵生成</summary>
+            <param name="exchangeKeyOfAlice">Aliceの交換鍵</param>
+            <param name="iv">初期化ベクター</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.MsgAuthCode">
+            <summary>メッセージ認証コード（MAC）クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MsgAuthCode.GetMAC(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String)">
+            <summary>MAC値を返す。</summary>
+            <param name="msg">メッセージ（文字列）</param>
+            <param name="ekha">MACアルゴリズム列挙型</param>
+            <param name="key">キー（文字列）</param>
+            <returns>MAC値（base64文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MsgAuthCode.GetMAC(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.Byte[])">
+            <summary>MAC値を返す。</summary>
+            <param name="msg">メッセージ（バイト配列）</param>
+            <param name="ekha">MACアルゴリズム列挙型</param>
+            <param name="key">キー（バイト配列）</param>
+            <returns>MAC値（バイト配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MsgAuthCode.VerifyMAC(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.String)">
+            <summary>MAC値を検証</summary>
+            <param name="msg">メッセージ（文字列）</param>
+            <param name="ekha">MACアルゴリズム列挙型</param>
+            <param name="key">キー（文字列）</param>
+            <param name="mac">MAC値（base64文字列）</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MsgAuthCode.VerifyMAC(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.Byte[],System.Byte[])">
+            <summary>MAC値を検証</summary>
+            <param name="msg">メッセージ（バイト配列）</param>
+            <param name="ekha">MACアルゴリズム列挙型</param>
+            <param name="key">キー（バイト配列）</param>
+            <param name="mac">MAC値（バイト配列）</param>
+            <returns>検証結果( true:検証成功, false:検証失敗 )</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.MyDebug">
+            <summary>MyDebugクラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MyDebug.InspectJwt(System.String,System.String)">
+            <summary>InspectJwt</summary>
+            <param name="testLabel">string</param>
+            <param name="jwt">string</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MyDebug.InspectJws(System.String,System.String[])">
+            <summary>InspectJws</summary>
+            <param name="testLabel">string</param>
+            <param name="jws">string[]</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MyDebug.InspectJwe(System.String,System.String[])">
+            <summary>InspectJwe</summary>
+            <param name="testLabel">string</param>
+            <param name="jwe">string[]</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MyDebug.InspectPrivateX509Key(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>InspectPrivateX509Key</summary>
+            <param name="testLabel">string</param>
+            <param name="privateX509Key">X509Certificate2</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.MyDebug.InspectPublicX509Key(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>InspectPublicX509Key</summary>
+            <param name="testLabel">string</param>
+            <param name="publicX509Key">X509Certificate2</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail">
+            <summary>PrivacyEnhancedMail(PEM)クラス</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label">
+            <summary>RFC7468 Label</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.Certificate">
+            <summary>
+            証明書, PKCS #7証明書鎖,
+            Netscape Certificate Sequence
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.X509Certificate">
+            <summary>X.509証明書</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.X509Certificate2">
+            <summary>X.509証明書</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.TrustedCertificate">
+            <summary>証明書</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.NetscapeCertificateSequence">
+            <summary>Netscape Certificate Sequence</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.AttributeCertificate">
+            <summary>属性証明書</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.PKCS7">
+            <summary>PKCS7</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.CertificateChain">
+            <summary>PKCS #7証明書鎖</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.PKCS7CertificateChain">
+            <summary>PKCS #7証明書鎖</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.CMS">
+            <summary>CMS</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.PrivateKey">
+            <summary> 秘密鍵 (PKCS #8)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.PublicKey">
+            <summary> 公開鍵</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.RsaPrivateKey">
+            <summary> RSA 秘密鍵 (PKCS #1)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.RsaPublicKey">
+            <summary> RSA 公開鍵 (PKCS #1)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.DsaPrivateKey">
+            <summary> DSA 秘密鍵 (PKCS #1)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.DsaPublicKey">
+            <summary> DSA 公開鍵 (PKCS #1)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.EncryptedPrivateKey">
+            <summary>暗号化された秘密鍵 (PKCS #8) </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.CertificateRequest">
+            <summary>CSR (PKCS #10)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.NewCertificateRequest">
+            <summary>CSR (PKCS #10)</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.CRL">
+            <summary>CRL</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.X509CRL">
+            <summary>CRL</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.EcParameters">
+            <summary>楕円曲線のパラメタ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label.DhParameters">
+            <summary>Diffie-Hellmanのパラメタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.EnumToString(Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label)">
+            <summary>EnumToString</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.GetX509FromPemFilePath(System.String,Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label)">
+            <summary>GetX509FromPemFilePath</summary>
+            <param name="pemFilePath">string</param>
+            <param name="label">RFC7468Label</param>
+            <returns>X509Certificate2</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.GetBase64StringFromPemFilePath(System.String,Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.RFC7468Label)">
+            <summary>GetBase64StringFromPemFilePath</summary>
+            <param name="pemFilePath">string</param>
+            <param name="label">RFC7468Label</param>
+            <returns>Base64String</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.PrivacyEnhancedMail.GetBytesFromPemString(System.String,System.String)">
+            <summary>GetBytesFromPemString</summary>
+            <param name="pemString">string</param>
+            <param name="label">string</param>
+            <returns>Byte[]</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Pwd.GetPassword">
+            <summary>GetPassword</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPassword.Base64Secret(System.Int32)">
+            <summary>Base64Secretを生成</summary>
+            <param name="byteSize">サイズ（バイト）</param>
+            <returns>Base64Secret</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPassword.Base64UrlSecret(System.Int32)">
+            <summary>Base64UrlSecretを生成</summary>
+            <param name="byteSize">サイズ（バイト）</param>
+            <returns>Base64UrlSecret</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPassword.RandomByte(System.Int32)">
+            <summary>RandomByte</summary>
+            <param name="byteSize">Byteサイズ</param>
+            <returns>RandomByte</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPassword.Generate(System.Int32,System.Int32)">
+            <summary>PasswordをGenerate</summary>
+            <param name="length">長さ（1-127）</param>
+            <param name="numberOfNonAlphanumericCharacters">Alphanumeric以外の文字数(0-length)</param>
+            <returns>Password</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1">
+            <summary>Password Hashを取得するクラス（v1</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1._salt">
+            <summary>salt</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.Salt">
+            <summary>salt</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1._stretchCount">
+            <summary>Stretch回数</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.StretchCount">
+            <summary>Stretch回数</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">>Password entered by the user.</param>
+            <param name="eha">Hashアルゴリズム列挙型</param>
+            <param name="saltLength">saltの文字列長</param>
+            <returns>Salted and hashed password.</returns>
+            <see ref="http://www.atmarkit.co.jp/ait/articles/1110/06/news154_2.html"/>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm,System.Int32,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">>Password entered by the user.</param>
+            <param name="eha">Hashアルゴリズム列挙型</param>
+            <param name="saltLength">saltの文字列長</param>
+            <param name="stretchCount">Stretch回数</param>
+            <returns>Salted and hashed password.</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.EqualSaltedPassword(System.String,System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm)">
+            <summary>パスワードを比較して認証する。</summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="saltedPassword">Salted and hashed password.</param>
+            <param name="eha">Hashアルゴリズム列挙型</param>
+            <returns>
+            true：パスワードは一致した。
+            false：パスワードは一致しない。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <param name="key">キー（システム共通）</param>
+            <param name="saltLength">saltの文字列長</param>
+            <returns>Salted and hashed password.</returns>
+            <see ref="http://www.atmarkit.co.jp/ait/articles/1110/06/news154_2.html"/>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Int32,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <param name="key">キー</param>
+            <param name="saltLength">saltの文字列長</param>
+            <param name="stretchCount">Stretch回数</param>
+            <returns>Salted and hashed password.</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.EqualSaltedPassword(System.String,System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>パスワードを比較して認証する。</summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="saltedPassword">Salted and hashed password.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <param name="han">Hashアルゴリズム名（Stretching用）</param>
+            <returns>
+            true：パスワードは一致した。
+            false：パスワードは一致しない。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashString(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String)">
+            <summary>文字列のHash値を計算して返す。</summary>
+            <param name="ss">文字列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <returns>Hash値（文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashString(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Byte[])">
+            <summary>文字列のHash値を計算して返す。</summary>
+            <param name="ss">文字列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <param name="salt">salt</param>
+            <returns>Hash値（文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashString(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Byte[],System.Int32)">
+            <summary>文字列のHash値を計算して返す。</summary>
+            <param name="ss">文字列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <param name="salt">salt</param>
+            <param name="stretching">Stretch回数</param>
+            <returns>Hash値（文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashString(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Byte[],System.Int32,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>文字列のHash値を計算して返す。</summary>
+            <param name="ss">文字列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <param name="salt">salt</param>
+            <param name="stretching">Stretch回数</param>
+            <param name="han">Hashアルゴリズム名（Stretching用）</param>
+            <returns>Hash値（文字列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String)">
+            <summary>Byte配列のHash値を計算して返す。</summary>
+            <param name="asb">Byte配列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <returns>Hash値（Byte配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Byte[])">
+            <summary>Byte配列のHash値を計算して返す。</summary>
+            <param name="asb">Byte配列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <param name="salt">salt</param>
+            <returns>Hash値（Byte配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Byte[],System.Int32)">
+            <summary>Byte配列のHash値を計算して返す。</summary>
+            <param name="asb">Byte配列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <param name="salt">salt</param>
+            <param name="stretchCount">Stretch回数</param>
+            <returns>Hash値（Byte配列）</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV1.GetKeyedHashBytes(System.Byte[],Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Byte[],System.Int32,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>Byte配列のHash値を計算して返す。</summary>
+            <param name="asb">Byte配列</param>
+            <param name="ekha">Keyed Hashアルゴリズム列挙型</param>
+            <param name="password">使用するパスワード</param>
+            <param name="salt">salt</param>
+            <param name="stretchCount">Stretch回数</param>
+            <param name="han">Hashアルゴリズム名（Stretching用）</param>
+            <returns>Hash値（Byte配列）</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2">
+            <summary>Password Hashを取得するクラス（v2</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">>Password entered by the user.</param>
+            <param name="eha">Hashアルゴリズム列挙型</param>
+            <param name="saltLength">saltの文字列長</param>
+            <returns>Salted and hashed password.</returns>
+            <see ref="http://www.atmarkit.co.jp/ait/articles/1110/06/news154_2.html"/>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm,System.Int32,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">>Password entered by the user.</param>
+            <param name="eha">Hashアルゴリズム列挙型</param>
+            <param name="saltLength">saltの文字列長</param>
+            <param name="stretchCount">Stretch回数</param>
+            <returns>Salted and hashed password.</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.EqualSaltedPassword(System.String,System.String,Touryo.Infrastructure.Public.Security.EnumHashAlgorithm)">
+            <summary>パスワードを比較して認証する。</summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="saltedPassword">Salted and hashed password.</param>
+            <param name="eha">Hashアルゴリズム列挙型</param>
+            <returns>
+            true：パスワードは一致した。
+            false：パスワードは一致しない。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Int32,System.Int32)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <param name="key">キー</param>
+            <param name="saltLength">saltの文字列長</param>
+            <param name="stretchCount">Stretch回数</param>
+            <returns>Salted and hashed password.</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.GetSaltedPassword(System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.String,System.Int32,System.Int32,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>
+            Password entered by the userをDB保存する際、
+            Salted and hashed passwordとして保存する必要がある。
+            </summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <param name="key">キー</param>
+            <param name="saltLength">saltの文字列長</param>
+            <param name="stretchCount">Stretch回数</param>
+            <param name="hashAlgorithmName">Hashアルゴリズム名</param>
+            <returns>Salted and hashed password.</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.EqualSaltedPassword(System.String,System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm)">
+            <summary>パスワードを比較して認証する。</summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="saltedPassword">Salted and hashed password.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <returns>
+            true：パスワードは一致した。
+            false：パスワードは一致しない。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Pwd.GetPasswordHashV2.EqualSaltedPassword(System.String,System.String,Touryo.Infrastructure.Public.Security.EnumKeyedHashAlgorithm,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>パスワードを比較して認証する。</summary>
+            <param name="rawPassword">Password entered by the user.</param>
+            <param name="saltedPassword">Salted and hashed password.</param>
+            <param name="ekha">Hashアルゴリズム列挙型</param>
+            <param name="hashAlgorithmName">Hashアルゴリズム名</param>
+            <returns>
+            true：パスワードは一致した。
+            false：パスワードは一致しない。
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.SymmetricCryptography">
+            <summary>対称アルゴリズムによる暗号化・復号化クラス</summary>
+            <remarks>
+            自由に利用できる。
+            http://dobon.net/vb/dotnet/string/encryptstring.html
+            </remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.SymmetricCryptography.DefaultSalt">
+            <summary>ソルト（既定値）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.SymmetricCryptography.DefaultStretching">
+            <summary>ストレッチング（既定値）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.SymmetricCryptography.Algorithm">
+            <summary>EnumSymmetricAlgorithm</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.SymmetricCryptography.Salt">
+            <summary>ソルト</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.SymmetricCryptography.Stretching">
+            <summary>ストレッチング</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.#ctor">
+            <summary>Constructor</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.#ctor(Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm)">
+            <summary>Constructor</summary>
+            <param name="algorithm">対称アルゴリズム</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.#ctor(Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm,System.Byte[])">
+            <summary>Constructor</summary>
+            <param name="algorithm">対称アルゴリズム</param>
+            <param name="salt">ソルト</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.#ctor(Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm,System.Byte[],System.Int32)">
+            <summary>Constructor</summary>
+            <param name="algorithm">対称アルゴリズム</param>
+            <param name="salt">ソルト</param>
+            <param name="stretching">ストレッチング</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.EncryptString(System.String,System.String)">
+            <summary>文字列を暗号化する</summary>
+            <param name="sourceString">暗号化する文字列</param>
+            <param name="password">暗号化に使用するパスワード</param>
+            <returns>暗号化された文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.EncryptBytes(System.Byte[],System.String)">
+            <summary>バイト配列を暗号化する</summary>
+            <param name="source">暗号化するバイト配列</param>
+            <param name="password">暗号化に使用するパスワード</param>
+            <returns>暗号化されたバイト配列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.DecryptString(System.String,System.String)">
+            <summary>暗号化された文字列を復号化する</summary>
+            <param name="sourceString">暗号化された文字列</param>
+            <param name="password">暗号化に使用したパスワード</param>
+            <returns>復号化された文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.DecryptBytes(System.Byte[],System.String)">
+            <summary>暗号化されたバイト配列を復号化する</summary>
+            <param name="source">暗号化されたバイト配列</param>
+            <param name="password">暗号化に使用したパスワード</param>
+            <returns>復号化されたバイト配列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.GenerateKeyFromPassword(System.String,System.Int32,System.Byte[]@,System.Int32,System.Byte[]@,System.Byte[],System.Int32)">
+            <summary>パスワードから共有キーと初期化ベクタを生成する</summary>
+            <param name="password">基になるパスワード</param>
+            <param name="keySize">共有キーのサイズ（ビット）</param>
+            <param name="key">作成された共有キー</param>
+            <param name="blockSize">初期化ベクタのサイズ（ビット）</param>
+            <param name="iv">作成された初期化ベクタ</param>
+            <param name="salt">ソルト</param>
+            <param name="stretching">ストレッチング</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.GenerateKeyFromPassword(System.String,System.Int32,System.Byte[]@,System.Int32,System.Byte[]@,System.Byte[],System.Int32,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>パスワードから共有キーと初期化ベクタを生成する</summary>
+            <param name="password">基になるパスワード</param>
+            <param name="keySize">共有キーのサイズ（ビット）</param>
+            <param name="key">作成された共有キー</param>
+            <param name="blockSize">初期化ベクタのサイズ（ビット）</param>
+            <param name="iv">作成された初期化ベクタ</param>
+            <param name="salt">ソルト</param>
+            <param name="stretching">ストレッチング</param>
+            <param name="hashAlgorithmName">Hashアルゴリズム名</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.CreateSymmetricAlgorithm(Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm)">
+            <summary>
+            対称アルゴリズムによる
+            暗号化サービスプロバイダを生成
+            </summary>
+            <param name="esa">
+            対称アルゴリズムによる
+            暗号化サービスプロバイダの種類
+            </param>
+            <returns>
+            対称アルゴリズムによる
+            暗号化サービスプロバイダ
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.SymmetricCryptography.CreateSymmetricAlgorithm(Touryo.Infrastructure.Public.Security.EnumSymmetricAlgorithm,System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>対称アルゴリズム暗号化サービスプロバイダ生成</summary>
+            <param name="esa">EnumSymmetricAlgorithm</param>
+            <param name="cm">CipherMode</param>
+            <param name="pm">PaddingMode</param>
+            <returns>SymmetricAlgorithm</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.Public.Security.Xml.SignedXml2">
+            <summary>
+            SignedXml2
+            System.Security.Cryptography.Xml.SignedXmlのラッパ
+            ネストしたXMLの署名・検証処理の問題の確認用コード。
+            https://gist.github.com/daisukenishino2/69074e571cf89c23cce6d1522abc67e5
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.Public.Security.Xml.SignedXml2._rsa">
+            <summary>RSA</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Xml.SignedXml2.#ctor(System.Security.Cryptography.RSA)">
+            <summary></summary>
+            <param name="rsa">RSA</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Xml.SignedXml2.Create(System.String,System.String,System.Boolean)">
+            <summary>SignedXml生成メソッド</summary>
+            <param name="xmlString">Xml文字列</param>
+            <param name="referenceId">署名対象ノードのID値（「#」は含まない）</param>
+            <param name="preserveWhitespace">SignedXmlの空白・改行を保持する()・しない(false)</param>
+            <returns>Signed XmlDocument</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Xml.SignedXml2.Create(System.Xml.XmlDocument,System.String,System.Boolean)">
+            <summary>SignedXml生成メソッド</summary>
+            <param name="xmlDoc">XmlDocument</param>
+            <param name="referenceId">署名対象ノードのID値（「#」は含まない）</param>
+            <param name="preserveWhitespace">SignedXmlの空白・改行を保持する()・しない(false)</param>
+            <returns>Signed XmlDocument</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.Public.Security.Xml.SignedXml2.Verify(System.String,System.String,System.Boolean)">
+            <summary>SignedXml検証メソッド</summary>
+            <param name="signedXmlString">SignedXml</param>
+            <param name="referenceId">署名対象ノードのID値（「#」は含まない）</param>
+            <param name="preserveWhitespace">SignedXmlの空白・改行を保持する()・しない(false)</param>
+            <returns>署名の検証結果</returns>
+        </member>
+    </members>
+</doc>

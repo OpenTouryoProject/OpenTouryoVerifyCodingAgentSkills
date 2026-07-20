@@ -1,0 +1,177 @@
+---
+name: opentouryo-project-policy
+description: "OpenTouryo を使うプロジェクト固有の方針を確認する。親クラス2（業務フレームワーク）の実装が決める仕様（MyUserInfo が持つ項目、メッセージの %1/%2 置換を行うか、User 分離レベルの振替先、接続文字列のキーと DBMS、UOC_ABEND での例外の振替、ACCESS / SQLTRACE ログの書式、追加された接頭辞）を、そのソース（MyFcBaseLogic / MyUserInfo / MyBaseController / MyBaseDao など Touryo.Infrastructure.Business）から読み取る手順を扱う。あわせて、コードに無く聞くしかない運用ルール（OPERATION ログの書式、イベントログの使いどころ）も扱い、ソースが提供されていない場合や運用ルールを決められない場合に纏め者へ投げる質問の作り方を示す。このプロジェクトではどうなっているか / 親クラス2 の挙動 / 業務フレームワークの実装 / プロジェクト方針 / 運用ルール / 書式の標準 / 纏め者に確認 が分からず実装を進められないときに使う。"
+license: MIT
+metadata:
+  author: OpenTouryoProject
+  version: "0.1.0"
+---
+
+# プロジェクト方針（親クラス2 の挙動）の確認
+
+## このスキルの適用範囲
+
+**「このプロジェクトではどうなっているか」が分からないと先に進めないときに使う。**
+
+OpenTouryo には**フレームワークが決めず、親クラス2（業務フレームワーク）の実装が決める**
+仕様がある。既定のテンプレートは付いてくるが、**纏め者が書き換える前提**なので、
+テンプレートの値をそのまま「このプロジェクトの仕様」として扱ってはならない。
+
+**推測で書かない。** 確認するか、人に聞く。
+
+このスキルは親クラス2 を**読んで確認する側**（アプリ開発者向け）。親クラス2 を**カスタマイズする側**
+（纏め者向け）は `opentouryo-base2-customize`。
+
+## 何がプロジェクト依存か
+
+**2種類ある。確認方法が違う。**
+
+### A. 親クラス2 の実装が決める（コードで確認できる）
+
+| 事項 | 既定のテンプレート | 関連スキル |
+| --- | --- | --- |
+| `MyUserInfo` が持つ項目 | `UserName` / `IPAddress` の2つだけ | `opentouryo-auth` |
+| メッセージの `%1`/`%2` 置換 | **Web Forms のみ**実装がある | `opentouryo-message` |
+| `User` 分離レベルの振替先 | `ReadCommitted` | `opentouryo-layer-b` |
+| 接続文字列のキー / 使う DBMS | `ConnectionString_SQL` ほか | `opentouryo-config` |
+| `UOC_ABEND` での例外の振替 | 振替の IF 文は雛形のみ。一般例外はリスロー | `opentouryo-exception` |
+| 事前定義された例外メッセージ | `SAMPLE_ERROR` のみ | `opentouryo-exception` / `opentouryo-message` |
+| `ACCESS` / `SQLTRACE` ログの書式 | カンマ区切り | `opentouryo-logging` |
+| 追加された接頭辞 | `PREFIX_OF_CHECK_BOX` のみ | `opentouryo-layer-p-webforms-event` |
+| P層イベント対応の拡張 | `CheckBox` のみ追加 | `opentouryo-layer-p-webforms-event` / `-winforms-event` |
+| Web API の認証方式 | 既定 `EnumHttpAuthHeader.None`（認証なし）。Bearer は JWT 検証の雛形のみ | `opentouryo-auth` |
+| `MyParameterValue`/`MyReturnValue` の共通項目 | 既定は共通引数（ユーザ情報等）のみ | `opentouryo-p-call-business` |
+
+### B. 運用ルール（コードに無い。聞くしかない）
+
+**フレームワークもテンプレートも定めていない。読む対象が存在しない。**
+
+| 事項 | 関連スキル |
+| --- | --- |
+| `OPERATION` ログの書式（項目と区切り） | `opentouryo-logging` |
+| イベントログ（`CustomEventLog` / `SecurityEventLog`）の使いどころ | `opentouryo-logging` |
+
+**「決まりが無い」＝「自分で決めてよい」ではない。** 纏め者に確認する（③ へ直行）。
+
+## 手順
+
+```
+A（親クラス2 の実装が決める）
+  ① 親クラス2 のソースを探す
+       見つかった → ② 読む（確認地図）
+       見つからない → ③ 纏め者への質問にする
+
+B（運用ルール）
+  → ③ へ直行（読む対象が無い）
+```
+
+### ① ソースを探す
+
+**バイナリ提供が原則だが、提供され方はプロジェクトによる。** まず探す。
+`opentouryo-project-setup` で構築したプロジェクトなら、置き場は同じレイアウトになる：
+
+| 見る場所 | 中身 |
+| --- | --- |
+| `base2-overlay/Frameworks/Infrastructure/Business/` | **このプロジェクトが実際に変えた親クラス2**（修正差分だけ・コミット済み。まず読む）。`opentouryo-base2-customize` |
+| `Temp/OpenTouryo-<ref>/root/programs/CS/Frameworks/Infrastructure/Business/` | 親クラス2 の**元ソース**（既定値の確認用）。`.gitignore` 対象で**ローカルにしか無い**（新規クローンには無い） |
+| `OpenTouryoAssemblies/Build_*/OpenTouryo.Business*.dll` | **ビルド済みバイナリ**（ソースではない。これしか読めなければ ③ へ） |
+
+**まず `base2-overlay/` を読む**（既定から何を変えたかが分かる）。そこに無い項目は既定のままなので、
+元ソース（Temp 側）で既定値を確認する。**Temp が無い（クローン直後など）なら、固定タグの本家ソースを
+見るか、③ で纏め者に聞く。**
+
+上記レイアウトでないプロジェクトでは、ファイル名（`MyFcBaseLogic.cs` / `MyUserInfo.cs` /
+`MyBaseController.cs` 等）でリポジトリ内を検索する。アセンブリは `Touryo.Infrastructure.Business`、
+名前空間は `Touryo.Infrastructure.Business.*`（本家では `Frameworks/Infrastructure/Business/`）。
+
+`.dll` しか読めなければソースは提供されていない。→ ③ へ。
+
+### ② 読む（確認地図）
+
+**パスは ① で見つけた `Frameworks/Infrastructure/Business/` からの相対。** 見つけたファイルの中の「見どころ」を読む。
+
+| 確認したいこと | ファイル | 見どころ |
+| --- | --- | --- |
+| `MyUserInfo` の項目 | `Util/MyUserInfo.cs` | プロパティの一覧 |
+| `%1`/`%2` の置換 | `Presentation/MyBaseController.cs` | `UOC_ABEND(BusinessApplicationException, FxEventArgs)` の中の `Replace("%1", ...)` |
+| `User` の振替先 | `Business/MyFcBaseLogic.cs` | `UOC_ConnectionOpen` の `if (iso == DbEnum.IsolationLevelEnum.User)` |
+| DBMS 選択方式 / 接続文字列 | `Business/MyFcBaseLogic.cs` | `UOC_ConnectionOpen` の `actionType.Split('%')[0]` による Dam 選択と `GetConnectionString("...")` |
+| 例外の振替・リスロー | `Business/MyFcBaseLogic.cs` | `UOC_ABEND` の3つのオーバーロード |
+| `ACCESS` ログの書式 | `Business/MyFcBaseLogic.cs` | `UOC_PreAction` / `UOC_AfterAction` / `UOC_ABEND` の `LogIF` 呼び出し |
+| `SQLTRACE` ログの書式 | `Dao/MyBaseDao.cs` | `UOC_PreQuery` / `UOC_AfterQuery` |
+| 追加された接頭辞 | `Util/MyLiteral.cs` | `PREFIX_OF_*` 定数 |
+| P層イベント対応の拡張<br>（対応コントロール・イベント） | `Presentation/MyBaseController.cs`<br>`RichClient/Presentation/MyBaseControllerWin.cs` | `addControlEvent()` に追加された結線（既定外があるか） |
+| 認証・ユーザ情報の復元 | `Presentation/MyBaseController.cs` | `GetUserInfo()` |
+| Web API の認証方式・ログ書式 | `Presentation/MyBaseAsyncApiController.cs`<br>（Core は `...Core.cs`） | `GetUserInfoAsync` の `EnumHttpAuthHeader` 分岐（Basic/Bearer/None）・`OnActionExecuting/Executed` の `ACCESS` ログ |
+| 引数/戻り値に足した共通項目 | `Common/MyParameterValue.cs`<br>`Common/MyReturnValue.cs` | `Base*Value` に追加したプロパティ（全 B層で運ぶ共通引数・戻り値） |
+| 非同期処理（リッチ）の共通挙動 | `RichClient/Asynchronous/MyBaseAsyncFunc.cs` | `UOC_*` の override・`CanOutPutLog`（ログ抑止） |
+| サブシステム区分・独自メタ属性 | `Util/MySubsysInfo.cs`（`SubsysID` enum）<br>`Util/MyAttribute.cs`（`MyAttributeA/B/C`） | 案件で足したサブシステム区分・独自属性の項目 |
+| 事前定義された例外メッセージ | `Exceptions/MyBusinessApplicationExceptionMessage.cs`<br>`Exceptions/MyBusinessSystemExceptionMessage.cs` | 定義済みの `messageID` プロパティ（`.resx` 対応。纏め者が採番） |
+
+P層は処理方式ごとにファイルが違う。**使っている方式のものを読む。**
+
+| 処理方式 | ファイル |
+| --- | --- |
+| Web Forms | `Presentation/MyBaseController.cs` |
+| ASP.NET MVC | `Presentation/MyBaseMVController.cs` |
+| ASP.NET Core MVC | `Presentation/MyBaseMVControllerCore.cs` |
+| Web API（net48） | `Presentation/MyBaseAsyncApiController.cs` |
+| Web API（Core） | `Presentation/MyBaseAsyncApiControllerCore.cs` |
+| Windows Forms | `RichClient/Presentation/MyBaseControllerWin.cs` |
+
+B層も同様。リッチクライアント（2層C/S）は `RichClient/Business/MyFcBaseLogic2CS.cs`。
+
+**`MyBaseLogic` / `MyBaseLogic2CS` は非推奨クラス。** `grep` で先にヒットしがちだが、
+読むのは `MyFcBaseLogic` / `MyFcBaseLogic2CS`（`AGENTS.md` の非推奨一覧を参照）。
+
+### ③ 纏め者への質問にする
+
+**ソースが読めないなら、答えを持っているのは纏め者（親クラス2 を整備する側）だけ。**
+勝手に決めず、**確認事項を質問の形にまとめて人へ渡す。**
+
+**作業を止めて質問を出す。** 回答は人がプロンプトで指示する。
+
+質問は**答えやすい形**にする。「どうなっていますか」ではなく、
+**既定値を示して差分だけ聞く。**
+
+```markdown
+## プロジェクトの方針を確認させてください
+
+以下が判断できないため、実装を止めています。
+
+### 親クラス2 の実装について
+（`Touryo.Infrastructure.Business` のソースが参照できないため。（）内は既定テンプレートの値）
+
+1. `MyUserInfo` に追加している項目はありますか。
+   （既定: `UserName` / `IPAddress` の2つのみ）
+2. 業務例外メッセージの `%1` / `%2` の置換は行っていますか。
+   （既定: Web Forms の `MyBaseController` のみ実装。他の処理方式には無い）
+3. `IsolationLevelEnum.User` は、どの分離レベルへ振り替えていますか。
+   （既定: `ReadCommitted`）
+4. `UOC_ABEND` で例外を振り替えていますか。振り替えている場合、条件と振替先を教えてください。
+   （既定: 雛形のみ。一般例外はそのままリスロー）
+
+### 運用ルールについて
+（フレームワークが定めておらず、コードから読み取れないため）
+
+5. `OPERATION` ログの書式（項目と区切り）の標準はありますか。
+   （`ACCESS` / `SQLTRACE` はカンマ区切り。これに倣うかも含めて）
+6. イベントログ（`CustomEventLog` / `SecurityEventLog`）はどういう場面で出しますか。
+```
+
+**聞くのは、その作業に必要な項目だけ。** 上は例で、全部聞く必要はない。
+
+## やってはいけないこと
+
+- **既定のテンプレートの値を「このプロジェクトの仕様」として書く** — 纏め者が変えている
+  前提の箇所がある。確認するか聞く
+- **「決まりが無い」から自分で決める** — B（運用ルール）は**決まりが無いのではなく、
+  こちらが知らないだけ**。書式や使いどころを勝手に発明しない
+- **既存コードでの使われ方から結論を出す** — 手掛かりに留める。
+  **「使われていない」は「できない」の根拠にならない**（単に使っていないだけかもしれない）
+- **親クラス2 のソースが読めたので修正する** — 読むためであって、修正してよいという意味ではない
+  （`AGENTS.md` の「クラスの階層と修正可否」参照）
+- **分からないまま実装を進める** — 止めて質問を出す
+- **纏め者に確認せずに親クラス2 を書き換えて辻褄を合わせる** — 修正対象ではない
+- **`MyBaseLogic` / `MyBaseLogic2CS` を読んで「既定の挙動」と判断する** — 非推奨クラス。
+  `MyFcBaseLogic` / `MyFcBaseLogic2CS` を読む

@@ -1,0 +1,1619 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenTouryo.CustomControl.RichClient</name>
+    </assembly>
+    <members>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList">
+            <summary>System.Windows.Forms.ComboBoxのカスタム・コントロール</summary>
+            <remarks>選択専用</remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList._masterDataName">
+            <summary>マスタデータ名</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList.MasterDataName">
+            <summary>マスタデータ名</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList.InitializeComponent">
+            <summary>初期化</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList.InitItems">
+            <summary>初期処理（Items）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomDropDownList.InitDataSource">
+            <summary>初期処理（DataSource）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox">
+            <summary>System.Windows.Forms.MaskedTextBoxのカスタム・コントロール</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBoxDesigner">
+            <summary>デザイナ上の表示をカスタマイズするインナークラス</summary>
+            <remarks>
+            自作コントロールにおいて、不要なプロパティをデザイナANDインテリセンスで隠したい時
+            http://jehupc.exblog.jp/8157762/
+            継承と属性プログラミングで実現するRAD開発 － ＠IT
+            http://www.atmarkit.co.jp/fdotnet/winexp/winexp02/winexp02_03.html
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBoxDesigner.PostFilterProperties(System.Collections.IDictionary)">
+            <summary>下記で指定してあるプロパティはデザイナでは非表示とする。</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.#ctor(System.String)">
+            <summary>コンストラクタ</summary>
+            <param name="mask">マスク</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.InitializeComponent">
+            <summary>初期化</summary>
+        </member>
+        <member name="E:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.PropertyChanged">
+            <summary>変更通知イベント（汎用）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.NotifyPropertyChanged(System.String)">
+            <summary>変更通知イベント発生（汎用）</summary>
+            <param name="propertyName">プロパティ名</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Text">
+            <summary>Textプロパティにテキスト変更時の変更通知機能を追加実装する。</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.TextMaskFormat">
+            <summary>
+            TextMaskFormatは初期値、IncludeLiteralsのままReadonlyに変更。
+            このため、Textプロパティでは必ずマスク適用時の値を取得する。
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Text2">
+            <summary>Text2プロパティではマスクを除いた値を取得する。</summary>
+            <remarks>Bindingsで使用可能なようにset_Text2を用意した。</remarks>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Text3">
+            <summary>Text3プロパティでは表示時マスク適用時の値を取得する。</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetDateTime">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetDateTime(System.IFormatProvider)">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <param name="provider">書式</param>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetDateTime(System.IFormatProvider,System.Globalization.DateTimeStyles)">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <param name="provider">書式</param>
+            <param name="styles">スタイル</param>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetDecimal">
+            <summary>
+            Text値をDecimal型にキャストして返す。
+            </summary>
+            <returns>Decimal値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetDouble">
+            <summary>
+            Text値をDouble型にキャストして返す。
+            </summary>
+            <returns>Double値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetFloat">
+            <summary>
+            Text値をFloat型にキャストして返す。
+            </summary>
+            <returns>Float値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetInt16">
+            <summary>
+            Text値をInt16型にキャストして返す。
+            </summary>
+            <returns>Int16値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetInt32">
+            <summary>
+            Text値をInt32型にキャストして返す。
+            </summary>
+            <returns>Int32値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetInt64">
+            <summary>
+            Text値をInt64型にキャストして返す。
+            </summary>
+            <returns>Int64値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.DeleteFigure">
+            <summary>桁区切り文字を削除</summary>
+            <returns>桁区切り文字削除後の文字列</returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.CheckValidating">
+            <summary>Validatingイベントでチェックする</summary>
+            [DefaultValue(false),
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox._checkType">
+            <summary>入力文字種チェック</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.CheckType">
+            <summary>入力文字種チェック</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.ShouldSerializeCheckType">
+            <summary>入力文字種チェックのデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.CheckRegExp">
+            <summary>正規表現チェック</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.CheckProhibitedChar">
+            <summary>正規表現チェック</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox._editInitialValue">
+            <summary>初期値編集</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.EditInitialValue">
+            <summary>初期値編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.ShouldSerializeEditInitialValue">
+            <summary>初期値編集のチェックのデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.OriginalMask">
+            <summary>オリジナルのマスク</summary>
+            <remarks>退避しておくためのワーク</remarks>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Mask_Editing">
+            <summary>入力中のマスク</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.EditToHankaku">
+            <summary>半角編集</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.EditToYYYYMMDD">
+            <summary>日付編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_Layout(System.Object,System.EventArgs)">
+            <summary>初期化処理</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox._backupBkColor">
+            <summary>背景色（バックアップ）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>チェック処理</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>チェック後処理</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.IsMouseDown">
+            <summary>MouseDown状態の確認用フラグ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>マウスが入った</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_Enter(System.Object,System.EventArgs)">
+            <summary>フォーカス Enter</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.MethodInvokerDelegate_SelectAll">
+            <summary>（MethodInvoker）delegate廃止（VB化時に問題）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_Leave(System.Object,System.EventArgs)">
+            <summary>ロスト フォーカス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>テキスト変更時</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>ProcessCmdKey</summary>
+            <param name="msg">ウィンドウ メッセージ</param>
+            <param name="keyData">Keys</param>
+            <returns>
+            文字がコントロールによって
+            ・処理された場合は true。
+            ・それ以外の場合は false
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>クリア処理</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.WinCustomMaskedTextBox_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>０の復元</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.PreValidate">
+            <summary>チェック前の変換処理</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Validate">
+            <summary>チェック処理</summary>
+            <returns>
+            ・エラーなし：true
+            ・エラーあり：false
+            </returns>
+            <remarks>
+            マスク前の値をチェックする
+            ・必須入力チェック
+            ・数値チェック
+            
+            マスク後の値をチェックする
+            ・半角チェック
+            ・全角チェック
+            ・片仮名チェック
+            ・半角片仮名チェック
+            ・平仮名チェック
+            ・日付チェック
+            ・正規表現チェック
+            ・禁則文字チェック
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.GetTexts(System.String@,System.String@)">
+            <summary>編集中 or 編集後テキストを返す。</summary>
+            <param name="editingText">編集中テキスト</param>
+            <param name="editedText">編集後テキスト</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Validate(System.String[]@)">
+            <summary>チェック処理</summary>
+            <param name="result">結果文字列</param>
+            <returns>
+            ・エラーなし：true
+            ・エラーあり：false
+            </returns>
+            <remarks>
+            マスク前の値をチェックする
+            ・必須入力チェック
+            ・数値チェック
+            
+            マスク後の値をチェックする
+            ・半角チェック
+            ・全角チェック
+            ・片仮名チェック
+            ・半角片仮名チェック
+            ・平仮名チェック
+            ・日付チェック
+            ・正規表現チェック
+            ・禁則文字チェック
+            </remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Edited">
+            <summary>編集されたかどうか</summary>
+            <remarks>
+            true：編集された
+            false：編集されていない
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.Edit">
+            <summary>編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.ReEdit">
+            <summary>編集（逆）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBox.InitializeValue(System.String@)">
+            <summary>値を初期化する</summary>
+            <param name="text">初期値</param>
+            <returns>
+            true：初期化された。
+            false：初期化されていない。
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCell">
+            <summary>DataGridViewのWinCustomMaskedTextBoxセル</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCell.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCell.InitializeEditingControl(System.Int32,System.Object,System.Windows.Forms.DataGridViewCellStyle)">
+            <summary>編集コントロールを初期化</summary>
+            <param name="rowIndex">行</param>
+            <param name="initialFormattedValue">フォーマットバリュー</param>
+            <param name="dataGridViewCellStyle">セル スタイル</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCell.EditType">
+            <summary>編集コントロールの型を指定する</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCell.DefaultNewRowValue">
+            <summary>新しいレコード行のセルの既定値を指定する</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol">
+            <summary>DataGridViewのWinCustomMaskedTextBoxカラム</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.#ctor">
+            <summary>
+            CellTemplateとするDataGridViewMaskedTextBoxCellを
+            指定して基本クラスのコンストラクタを呼び出す
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.EditInitialValue">
+            <summary>初期値編集プロパティに適用する値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.Mask">
+            <summary>Maskプロパティに適用する値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.Mask_Editing">
+            <summary>Mask_Editingプロパティに適用する値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.EditToHankaku">
+            <summary>半角指定（マスクで指定できないため）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.EditToYYYYMMDD">
+            <summary>YYYYMMDDのM、Dが１桁の時に補正処理を行う。</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.Clone">
+            <summary>クローンの作製</summary>
+            <returns>クローン</returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvCol.CellTemplate">
+            <summary>CellTemplateの取得と設定</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost">
+            <summary>WinCustomMaskedTextBoxをDataGridViewでホストする。</summary>
+            <remarks>IDataGridViewEditingControlを実装する。</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.GetEditingControlFormattedValue(System.Windows.Forms.DataGridViewDataErrorContexts)">
+            <summary>編集コントロールで変更されたセルの値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.EditingControlFormattedValue">
+            <summary>編集コントロールで変更されたセルの値</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.ApplyCellStyleToEditingControl(System.Windows.Forms.DataGridViewCellStyle)">
+            <summary>セルスタイルを編集コントロールに適用する</summary>
+            <param name="dataGridViewCellStyle">セルのスタイル</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.EditingControlDataGridView">
+            <summary>編集しているセルがあるDataGridView</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.EditingControlRowIndex">
+            <summary>編集しているセルの行があるインデックス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.EditingControlValueChanged">
+            <summary>編集されたか（編集コントロールとセルの値が違うか）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.EditingControlWantsInputKey(System.Windows.Forms.Keys,System.Boolean)">
+            <summary>
+            指定されたキーが、編集コントロールによって処理される通常の入力キーか、
+            DataGridView によって処理される特殊なキーであるかを確認します。
+            </summary>
+            <param name="keyData">入力キー</param>
+            <param name="dataGridViewWantsInputKey">
+            keyData に格納された Keys を、DataGridView に
+            処理させる場合は true。それ以外の場合は false。
+            </param>
+            <returns>
+            true：編集コントロールに処理される入力キー
+            false：それ以外の場合
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.EditingPanelCursor">
+            <summary>マウスカーソルがEditingPanel上にあるときのカーソル</summary>
+            <remarks>EditingPanel：編集コントロールをホストするパネル</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.PrepareEditingControlForEdit(System.Boolean)">
+            <summary>コントロールで編集する準備をする</summary>
+            <param name="selectAll"></param>
+            <remarks>テキストを選択状態にしたり、挿入ポインタを末尾にしたりする</remarks>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.RepositionEditingControlOnValueChange">
+            <summary>
+            値が変更した時に、セルの位置を変更するかどうか
+            </summary>
+            <remarks>
+            true：大きさを変更する場合
+            false：大きさを変更しない場合
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomMaskedTextBoxDgvHost.OnTextChanged(System.EventArgs)">
+            <summary>値が変更された時</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox">
+            <summary>System.Windows.Forms.TextBoxのカスタム・コントロール</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBoxDesigner">
+            <summary>デザイナ上の表示をカスタマイズするインナークラス</summary>
+            <remarks>
+            自作コントロールにおいて、不要なプロパティをデザイナANDインテリセンスで隠したい時
+            http://jehupc.exblog.jp/8157762/
+            継承と属性プログラミングで実現するRAD開発 － ＠IT
+            http://www.atmarkit.co.jp/fdotnet/winexp/winexp02/winexp02_03.html
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBoxDesigner.PostFilterProperties(System.Collections.IDictionary)">
+            <summary>下記で指定してあるプロパティはデザイナでは非表示とする。</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.InitializeComponent">
+            <summary>初期化</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._OnValueChanged">
+            <summary>Valueプロパティの変更イベント</summary>
+        </member>
+        <member name="E:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ValueChanged">
+            <summary>Valueプロパティの変更イベント・ハンドラ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.OnValueChanged(System.EventArgs)">
+            <summary>ValueChangedイベントを発生させる</summary>
+        </member>
+        <member name="E:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.PropertyChanged">
+            <summary>変更通知イベント（汎用）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.NotifyPropertyChanged(System.String)">
+            <summary>変更通知イベント発生（汎用）</summary>
+            <param name="propertyName">プロパティ名</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Text">
+            <summary>Textプロパティにテキスト変更時の編集機能を追加実装する。</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Text2">
+            <summary>Text2プロパティ</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Text3">
+            <summary>Text3プロパティ</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._Value">
+            <summary>単位変換に対応したValueプロパティの実体値（退避用）</summary>
+            <remarks>
+            ポイント
+            ・内部から触る値なので、
+            ・string型であること。
+            ・単位変換後の値とする。
+            </remarks>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Value">
+            <summary>単位変換に対応したValueプロパティ</summary>
+            <remarks>内部からは触らない値</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ToKMGT(System.String)">
+            <summary>単位変換</summary>
+            <param name="value">値</param>
+            <returns>単位を変更し文字列化した値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.FromKMGT(System.String)">
+            <summary>単位変換（逆）</summary>
+            <param name="value">値</param>
+            <returns>単位を戻し文字列化した値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetDateTime">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetDateTime(System.IFormatProvider)">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <param name="provider">書式</param>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetDateTime(System.IFormatProvider,System.Globalization.DateTimeStyles)">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <param name="provider">書式</param>
+            <param name="styles">スタイル</param>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetDecimal">
+            <summary>
+            Text値をDecimal型にキャストして返す。
+            </summary>
+            <returns>Decimal値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetDouble">
+            <summary>
+            Text値をDouble型にキャストして返す。
+            </summary>
+            <returns>Double値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetFloat">
+            <summary>
+            Text値をFloat型にキャストして返す。
+            </summary>
+            <returns>Float値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetInt16">
+            <summary>
+            Text値をInt16型にキャストして返す。
+            </summary>
+            <returns>Int16値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetInt32">
+            <summary>
+            Text値をInt32型にキャストして返す。
+            </summary>
+            <returns>Int32値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.GetInt64">
+            <summary>
+            Text値をInt64型にキャストして返す。
+            </summary>
+            <returns>Int64値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.DeleteFigure">
+            <summary>桁区切り文字を削除</summary>
+            <returns>桁区切り文字削除後の文字列</returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.IsNumeric">
+            <summary>入力制限専用</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.CheckValidating">
+            <summary>Validatingイベントでチェックする</summary>
+            [DefaultValue(false),
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._checkType">
+            <summary>入力文字種チェック</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.CheckType">
+            <summary>入力文字種チェック</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeCheckType">
+            <summary>入力文字種チェックのデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.CheckRegExp">
+            <summary>正規表現チェック</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.CheckProhibitedChar">
+            <summary>正規表現チェック</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._editInitialValue">
+            <summary>初期値編集</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.EditInitialValue">
+            <summary>初期値編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeEditInitialValue">
+            <summary>初期値編集のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._editAddFigure">
+            <summary>桁区切り編集</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.EditAddFigure">
+            <summary>桁区切り編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeEditAddFigure">
+            <summary>桁区切り編集のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._editPadding">
+            <summary>文字埋め編集</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.EditPadding">
+            <summary>文字埋め編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeEditPadding">
+            <summary>文字埋め編集のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._editDigitsAfterDP">
+            <summary>小数点以下編集（入力後）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.EditDigitsAfterDP">
+            <summary>小数点以下編集（入力後）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeEditDigitsAfterDP">
+            <summary>小数点以下編集（入力後）のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._editDigitsAfterDP_Editing">
+            <summary>小数点以下編集（入力中）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.EditDigitsAfterDP_Editing">
+            <summary>小数点以下編集（入力中）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeEditDigitsAfterDP_Editing">
+            <summary>小数点以下編集（入力中）のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._displayUnits">
+            <summary>単位編集</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.DisplayUnits">
+            <summary>単位編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ShouldSerializeDisplayUnits">
+            <summary>単位編集デフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_Layout(System.Object,System.EventArgs)">
+            <summary>初期化処理</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox._backupBkColor">
+            <summary>背景色（バックアップ）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>チェック処理</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>チェック後処理</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.MouseDowned">
+            <summary>MouseDown状態の確認用フラグ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>マウスが入った</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_Enter(System.Object,System.EventArgs)">
+            <summary>フォーカス Enter</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.MethodInvokerDelegate_SelectAll">
+            <summary>（MethodInvoker）delegate廃止（VB化時に問題）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_Leave(System.Object,System.EventArgs)">
+            <summary>ロスト フォーカス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>ProcessCmdKey</summary>
+            <param name="msg">ウィンドウ メッセージ</param>
+            <param name="keyData">Keys</param>
+            <returns>
+            文字がコントロールによって
+            ・処理された場合は true。
+            ・それ以外の場合は false
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>クリア処理</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.WinCustomTextBox_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>０の復元</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.PreValidate">
+            <summary>チェック前の変換処理</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Validate">
+            <summary>チェック処理</summary>
+            <returns>
+            ・エラーなし：true
+            ・エラーあり：false
+            </returns>
+            <remarks>
+            ・必須入力チェック
+            ・数値チェック
+            ・半角チェック
+            ・全角チェック
+            ・片仮名チェック
+            ・半角片仮名チェック
+            ・平仮名チェック
+            ・日付チェック
+            
+            ・正規表現チェック
+            ・禁則文字チェック
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Validate(System.String[]@)">
+            <summary>チェック処理</summary>
+            <param name="result">結果文字列</param>
+            <returns>
+            ・エラーなし：true
+            ・エラーあり：false
+            </returns>
+            <remarks>
+            ・必須入力チェック
+            ・数値チェック
+            ・半角チェック
+            ・全角チェック
+            ・片仮名チェック
+            ・半角片仮名チェック
+            ・平仮名チェック
+            ・日付チェック
+            
+            ・正規表現チェック
+            ・禁則文字チェック
+            </remarks>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Edited">
+            <summary>編集されたかどうか</summary>
+            <remarks>
+            true：編集された
+            false：編集されていない
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.Edit">
+            <summary>編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.ReEdit">
+            <summary>編集（逆）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.CCC">
+            <summary>CheckCharCodeクラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.NumericalPossibility">
+            <summary>設定から、数値である可能性を探る</summary>
+            <remarks>数値、桁区切り指定、小数点以下切り捨て、数値パッド指定がある場合</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.InitializeValue(System.String@)">
+            <summary>値を初期化する</summary>
+            <param name="txt">初期値</param>
+            <returns>
+            ・true：初期化された。
+            ・false：初期化されていない。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.AddZeroAfterDP(System.String,Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP)">
+            <summary>後ろに小数点以下ｘ桁を付与</summary>
+            <param name="txt">入力文字列</param>
+            <param name="edad">小数点以下切り捨て指定</param>
+            <returns>編集後の文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBox.DeleteZeroAfterDP(System.String,Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP)">
+            <summary>小数点以下ｘ桁の０を削除</summary>
+            <param name="txt">入力文字列</param>
+            <param name="edad">小数点以下切り捨て指定</param>
+            <returns>編集後の文字列</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCell">
+            <summary>DataGridViewのWinCustomTextBoxセル</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCell.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCell.InitializeEditingControl(System.Int32,System.Object,System.Windows.Forms.DataGridViewCellStyle)">
+            <summary>編集コントロールを初期化</summary>
+            <param name="rowIndex">行</param>
+            <param name="initialFormattedValue">フォーマットバリュー</param>
+            <param name="dataGridViewCellStyle">セル スタイル</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCell.EditType">
+            <summary>編集コントロールの型を指定する</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCell.DefaultNewRowValue">
+            <summary>新しいレコード行のセルの既定値を指定する</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol">
+            <summary>DataGridViewのWinCustomTextBoxカラム</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.#ctor">
+            <summary>
+            CellTemplateとするWinCustomTextBoxDgvCellを
+            指定して基本クラスのコンストラクタを呼び出す
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.MaxLength">
+            <summary>MaxLengthプロパティの設定用</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.IsNumeric">
+            <summary>入力制限専用プロパティに適用する値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.EditInitialValue">
+            <summary>初期値編集プロパティに適用する値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.EditPadding">
+            <summary>文字埋め編集プロパティに適用する値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.EditDigitsAfterDP_Editing">
+            <summary>小数点以下編集（入力中）プロパティに適用する値</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.Clone">
+            <summary>クローンの作製</summary>
+            <returns>クローン</returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvCol.CellTemplate">
+            <summary>CellTemplateの取得と設定</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost">
+            <summary>WinCustomTextBoxをDataGridViewでホストする。</summary>
+            <remarks>IDataGridViewEditingControlを実装する。</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.GetEditingControlFormattedValue(System.Windows.Forms.DataGridViewDataErrorContexts)">
+            <summary>編集コントロールで変更されたセルの値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.EditingControlFormattedValue">
+            <summary>編集コントロールで変更されたセルの値</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.ApplyCellStyleToEditingControl(System.Windows.Forms.DataGridViewCellStyle)">
+            <summary>セルスタイルを編集コントロールに適用する</summary>
+            <param name="dataGridViewCellStyle">セルのスタイル</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.EditingControlDataGridView">
+            <summary>編集しているセルがあるDataGridView</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.EditingControlRowIndex">
+            <summary>編集しているセルの行があるインデックス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.EditingControlValueChanged">
+            <summary>編集されたか（編集コントロールとセルの値が違うか）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.EditingControlWantsInputKey(System.Windows.Forms.Keys,System.Boolean)">
+            <summary>
+            指定されたキーが、編集コントロールによって処理される通常の入力キーか、
+            DataGridView によって処理される特殊なキーであるかを確認します。
+            </summary>
+            <param name="keyData">入力キー</param>
+            <param name="dataGridViewWantsInputKey">
+            keyData に格納された Keys を、DataGridView に
+            処理させる場合は true。それ以外の場合は false。
+            </param>
+            <returns>
+            true：編集コントロールに処理される入力キー
+            false：それ以外の場合
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.EditingPanelCursor">
+            <summary>マウスカーソルがEditingPanel上にあるときのカーソル</summary>
+            <remarks>EditingPanel：編集コントロールをホストするパネル</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.PrepareEditingControlForEdit(System.Boolean)">
+            <summary>コントロールで編集する準備をする</summary>
+            <param name="selectAll"></param>
+            <remarks>テキストを選択状態にしたり、挿入ポインタを末尾にしたりする</remarks>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.RepositionEditingControlOnValueChange">
+            <summary>
+            値が変更した時に、セルの位置を変更するかどうか
+            </summary>
+            <remarks>
+            true：大きさを変更する場合
+            false：大きさを変更しない場合
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.WinCustomTextBoxDgvHost.OnTextChanged(System.EventArgs)">
+            <summary>Text値が変更された時</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CheckResult">
+            <summary>チェック結果格納クラス</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckResult.CtrlName">
+            <summary>コントロール名</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckResult.CheckErrorInfo">
+            <summary>チェックエラー情報名</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckResult.#ctor(System.String)">
+            <summary>コンストラクタ</summary>
+            <param name="ctrlName">コントロール名</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction">
+            <summary>リッチクライアント用カスタムコントロールの共通関数クラス</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.RequiredCheckErrorMessage">
+            <summary>
+            必須チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsHankakuCheckErrorMessage">
+            <summary>
+            半角チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsZenkakuCheckErrorMessage">
+            <summary>
+            全角チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsNumericCheckErrorMessage">
+            <summary>
+            数値チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsKatakanaCheckErrorMessage">
+            <summary>
+            片仮名チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsHanKatakanaCheckErrorMessage">
+            <summary>
+            半角片仮名チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsHiraganaCheckErrorMessage">
+            <summary>
+            平仮名チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.IsDateCheckErrorMessage">
+            <summary>
+            日付チェック エラー
+            のエラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.RegularExpressionCheckErrorMessage">
+            <summary>
+            正規表現チェック エラーの
+            エラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.ProhibitedCharsCheckErrorMessage">
+            <summary>
+            禁則文字チェック エラーの
+            エラー メッセージ
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.ProhibitedChars">
+            <summary>禁則文字</summary>
+            <remarks>
+            ・#（シャープ）
+            ・'（シングルクォーテーション）
+            ・\（円マーク）
+            ・|（パイプ）
+            ・%（パーセント）
+            ・_（アンダースコア）
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnCheckFunction.HasErrors(System.Windows.Forms.Control,System.Collections.Generic.List{Touryo.Infrastructure.CustomControl.RichClient.CheckResult})">
+            <summary>コントロールのバリデーション</summary>
+            <param name="parentCtrl">チェックルートのコントロール</param>
+            <param name="lstCheckResult">チェック結果を保持するリスト</param>
+            <returns>
+            ・エラーあり：true
+            ・エラーなし：false
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList">
+            <summary>リスト用マスタデータ関連処理クラス</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList.GetMasterDataNames(System.Windows.Forms.Control,System.Collections.Generic.List{System.String})">
+            <summary>マスタデータ名の収集</summary>
+            <param name="parentCtrl"></param>
+            <param name="masterDataNames"></param>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList._masterDatas">
+            <summary>マスタデータの保管場所</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList.ClearMasterData">
+            <summary>マスタデータを設定</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList.SetMasterData(System.String,System.Collections.IEnumerable)">
+            <summary>マスタデータを設定</summary>
+            <param name="name">マスタデータ名</param>
+            <param name="obj">マスタデータ</param>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList.GetMasterData(System.String)">
+            <summary>マスタデータを取得</summary>
+            <param name="name">マスタデータ名</param>
+            <returns>マスタデータ</returns>
+            <remarks>データソースに指定する用</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList.GetMasterData(System.String,System.Collections.IList)">
+            <summary>マスタデータを取得</summary>
+            <param name="name">マスタデータ名</param>
+            <param name="items">itemsプロパティ</param>
+            <remarks>itemsプロパティに設定する用</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CmnMasterDatasForList.DeleteMasterData(System.String)">
+            <summary>マスタデータを削除</summary>
+            <param name="name">マスタデータ名</param>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.ListItem">
+            <summary>
+            コンボボックスなどのリスト系コントロールに追加する項目クラス
+            識別子（ID）、名称（Name）、表示（ToString）のそれぞれを分けて取得できる。
+            </summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.ListItem._id">
+            <summary>識別子</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.ListItem._name">
+            <summary>名称</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.ListItem.#ctor(System.String,System.String)">
+            <summary>コンストラクタ</summary>
+            <param name="id">識別子</param>
+            <param name="name">名称</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.ListItem.Id">
+            <summary>識別子</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.ListItem.Name">
+            <summary>名称</summary>
+            <remarks>
+            ComboBoxで
+            ・ .ValueMember = "ID";
+            ・ .DisplayMember = "Name";
+            などと設定する。
+            </remarks>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.ListItem.Name2">
+            <summary>表示名</summary>
+            <remarks>
+            ComboBoxで
+            ・ .ValueMember = "ID";
+            ・ .DisplayMember = "Name2";
+            などと設定することで表示を変更可能。
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.ListItem.ToString">
+            <summary>表示名</summary>
+            <remarks>
+            ComboBoxの
+            ・ .ValueMember = "ID";
+            ・ .DisplayMember = "Name";
+            などと設定することで表示を変更可能。
+            </remarks>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.ICheck">
+            <summary>チェック処理に関するプロパティ グリッドのインターフェイス（テンプレート）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.ICheck.CheckType">
+            <summary>入力文字種チェック</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.ICheck.ShouldSerializeCheckType">
+            <summary>入力文字種チェックのデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.ICheck.CheckRegExp">
+            <summary>正規表現チェック</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.ICheck.CheckProhibitedChar">
+            <summary>正規表現チェック</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.ICheck.Validate">
+            <summary>チェック処理</summary>
+            <returns>
+            ・エラーなし：true
+            ・エラーあり：false
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.ICheck.Validate(System.String[]@)">
+            <summary>チェック処理</summary>
+            <param name="result">結果文字列</param>
+            <returns>
+            ・エラーなし：true
+            ・エラーあり：false
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.IEdit">
+            <summary>編集処理に関するプロパティ グリッドのインターフェイス（テンプレート）</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.IEdit.EditInitialValue">
+            <summary>初期値編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IEdit.ShouldSerializeEditInitialValue">
+            <summary>初期値編集のチェックのデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.IEdit.EditAddFigure">
+            <summary>桁区切り編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IEdit.ShouldSerializeEditAddFigure">
+            <summary>桁区切り編集のチェックのデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.IEdit.EditPadding">
+            <summary>文字埋め編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IEdit.ShouldSerializeEditPadding">
+            <summary>文字埋め編集のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.IEdit.EditDigitsAfterDP">
+            <summary>小数点以下ｘ桁編集</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IEdit.ShouldSerializeEditDigitsAfterDP">
+            <summary>文字埋め編集のデフォルト</summary>
+            <returns>
+            デフォルト以外：true
+            デフォルト：false
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.IGetValue">
+            <summary>値取得のインターフェイス（テンプレート）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetDateTime">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetDateTime(System.IFormatProvider)">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <param name="provider">書式</param>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetDateTime(System.IFormatProvider,System.Globalization.DateTimeStyles)">
+            <summary>
+            Text値をDateTime型にキャストして返す。
+            </summary>
+            <param name="provider">書式</param>
+            <param name="styles">スタイル</param>
+            <returns>DateTime値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetDecimal">
+            <summary>
+            Text値をDecimal型にキャストして返す。
+            </summary>
+            <returns>Decimal値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetDouble">
+            <summary>
+            Text値をDouble型にキャストして返す。
+            </summary>
+            <returns>Double値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetFloat">
+            <summary>
+            Text値をFloat型にキャストして返す。
+            </summary>
+            <returns>Float値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetInt16">
+            <summary>
+            Text値をInt16型にキャストして返す。
+            </summary>
+            <returns>Int16値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetInt32">
+            <summary>
+            Text値をInt32型にキャストして返す。
+            </summary>
+            <returns>Int32値</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.IGetValue.GetInt64">
+            <summary>
+            Text値をInt64型にキャストして返す。
+            </summary>
+            <returns>Int64値</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.IMasterData">
+            <summary>
+            マスタデータ名取得のインターフェイス（テンプレート）
+            </summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.IMasterData.MasterDataName">
+            <summary>マスタデータ名</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CheckType">
+            <summary>チェック タイプ</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems">
+            <summary>ビット・フィールド</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.Required">
+            <summary>必須入力</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsHankaku">
+            <summary>半角</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsZenkaku">
+            <summary>全角</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsNumeric">
+            <summary>数値</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsKatakana">
+            <summary>片仮名</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsHanKatakana">
+            <summary>半角片仮名</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsHiragana">
+            <summary>平仮名</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CheckType.CheckItems.IsDate">
+            <summary>日付</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckType.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.Required">
+            <summary>必須</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsHankaku">
+            <summary>半角</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsZenkaku">
+            <summary>全角</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsNumeric">
+            <summary>数値</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsKatakana">
+            <summary>片仮名</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsHanKatakana">
+            <summary>半角片仮名</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsHiragana">
+            <summary>平仮名</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.CheckType.IsDate">
+            <summary>日付</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckType.GetHashCode">
+            <summary>ハッシュを返す</summary>
+            <returns>ハッシュコード</returns>
+            <remarks>
+            全メンバのハッシュコードのXORではなく、
+            ビットマスクの演算（boolなので）
+            </remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckType.Equals(Touryo.Infrastructure.CustomControl.RichClient.CheckType)">
+            <summary>Equals</summary>
+            <param name="ct">CheckType</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+            <remarks>全メンバの==のAND</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckType.Equals(System.Object)">
+            <summary>Equals</summary>
+            <param name="obj">CheckType</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckType.op_Equality(Touryo.Infrastructure.CustomControl.RichClient.CheckType,Touryo.Infrastructure.CustomControl.RichClient.CheckType)">
+            <summary>比較演算子（==）</summary>
+            <param name="l">右辺</param>
+            <param name="r">左辺</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckType.op_Inequality(Touryo.Infrastructure.CustomControl.RichClient.CheckType,Touryo.Infrastructure.CustomControl.RichClient.CheckType)">
+            <summary>比較演算子（!=）</summary>
+            <param name="l">右辺</param>
+            <param name="r">左辺</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CheckTypeConverter">
+            <summary>デザインタイム プロパティ用　CheckTypeクラスのコンバータ（テンプレート）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckTypeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            ConvertTo（プロパティグリッド表示値への変換）を実行可能か。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="destinationType">変換後の型</param>
+            <returns>
+            ConvertTo実行可：true。
+            ConvertTo実行不可：false。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            ConvertTo（プロパティグリッド表示値への変換）を実行する。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="culture">カルチャと</param>
+            <param name="value">CheckTypeオブジェクト</param>
+            <param name="destinationType">変換後の型</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckTypeConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            ConvertFrom（プロパティグリッドからの変換）を実行可能か。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="sourceType">文字列</param>
+            <returns>
+            ConvertFrom実行可：true。
+            ConvertFrom実行不可：false。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.CheckTypeConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            ConvertFrom（プロパティグリッドからの変換）を実行する。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="culture">カルチャ</param>
+            <param name="value">文字列</param>
+            <returns>CheckTypeオブジェクト</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.EditAddFigure">
+            <summary>EditAddFigure</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.EditAddFigure.None">
+            <summary>区切りなし</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.EditAddFigure.Af3">
+            <summary>三桁区切り</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.EditAddFigure.Af4">
+            <summary>四桁区切り</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.CutMethod">
+            <summary>CutMethod</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod.None">
+            <summary>なし</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod.Banker">
+            <summary>最近接偶数編集</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod._4sya5nyu">
+            <summary>四捨五入</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod.Floor">
+            <summary>切り捨て（絶対値：0への丸め）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod.Ceiling">
+            <summary>切り上げ（絶対値：無限大への丸め）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod.FloorRM">
+            <summary>切り捨て（大小：負の無限大への丸め）</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.CutMethod.CeilingRP">
+            <summary>切り上げ（大小：正の無限大への丸め）</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP">
+            <summary>小数点数以下ｘ桁編集方法の指定クラス</summary>
+            <remarks>デザインタイム プロパティ用</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.#ctor(Touryo.Infrastructure.CustomControl.RichClient.CutMethod,System.UInt32)">
+            <summary>コンストラクタ</summary>
+            <param name="howToCut">切り方</param>
+            <param name="digitsAfterDP">小数点数以下ｘ桁</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.HowToCut">
+            <summary>切り方</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.DigitsAfterDP">
+            <summary>小数点数以下ｘ桁</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.GetHashCode">
+            <summary>ハッシュを返す</summary>
+            <returns>ハッシュコード</returns>
+            <remarks>全メンバのハッシュコードのXOR</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.Equals(Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP)">
+            <summary>Equals</summary>
+            <param name="edadp">EditDigitsAfterDP</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+            <remarks>全メンバの==のAND</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.Equals(System.Object)">
+            <summary>Equals</summary>
+            <param name="obj">EditDigitsAfterDP</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.op_Equality(Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP,Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP)">
+            <summary>比較演算子（==）</summary>
+            <param name="l">右辺</param>
+            <param name="r">左辺</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP.op_Inequality(Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP,Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDP)">
+            <summary>比較演算子（!=）</summary>
+            <param name="l">右辺</param>
+            <param name="r">左辺</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDPConverter">
+            <summary>デザインタイム プロパティ用　小数点数以下ｘ桁編集方法の指定クラスのコンバータ（テンプレート）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDPConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            ConvertTo（プロパティグリッド表示値への変換）を実行可能か。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="destinationType">変換後の型</param>
+            <returns>
+            ConvertTo実行可：true。
+            ConvertTo実行不可：false。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDPConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            ConvertTo（プロパティグリッド表示値への変換）を実行する。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="culture">カルチャと</param>
+            <param name="value">EditDigitsAfterDPオブジェクト</param>
+            <param name="destinationType">変換後の型</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDPConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            ConvertFrom（プロパティグリッドからの変換）を実行可能か。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="sourceType">文字列</param>
+            <returns>
+            ConvertFrom実行可：true。
+            ConvertFrom実行不可：false。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditDigitsAfterDPConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            ConvertFrom（プロパティグリッドからの変換）を実行する。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="culture">カルチャ</param>
+            <param name="value">文字列</param>
+            <returns>EditDigitsAfterDPオブジェクト</returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.EditInitialValue">
+            <summary>EditInitialValue</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.EditInitialValue.Blank">
+            <summary>空文字列</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.EditInitialValue.Zero">
+            <summary>「0」</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.PadDirection">
+            <summary>PadDirection</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.PadDirection.None">
+            <summary>パッドなし</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.PadDirection.Right">
+            <summary>右側にパッド</summary>
+        </member>
+        <member name="F:Touryo.Infrastructure.CustomControl.RichClient.PadDirection.Left">
+            <summary>左側にパッド</summary>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.EditPadding">
+            <summary>パディング指定クラス</summary>
+            <remarks>デザインタイム プロパティ用</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.#ctor">
+            <summary>コンストラクタ</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.#ctor(Touryo.Infrastructure.CustomControl.RichClient.PadDirection,System.Nullable{System.Char})">
+            <summary>コンストラクタ</summary>
+            <param name="padDir">パッド方向</param>
+            <param name="padChar">パッド文字</param>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.PadDir">
+            <summary>パッド方向</summary>
+        </member>
+        <member name="P:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.PadChar">
+            <summary>パッド文字</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.GetHashCode">
+            <summary>ハッシュを返す</summary>
+            <returns>ハッシュコード</returns>
+            <remarks>全メンバのハッシュコードのXOR</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.Equals(Touryo.Infrastructure.CustomControl.RichClient.EditPadding)">
+            <summary>Equals</summary>
+            <param name="ep">EditPadding</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+            <remarks>全メンバの==のAND</remarks>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.Equals(System.Object)">
+            <summary>Equals</summary>
+            <param name="obj">EditPadding</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.op_Equality(Touryo.Infrastructure.CustomControl.RichClient.EditPadding,Touryo.Infrastructure.CustomControl.RichClient.EditPadding)">
+            <summary>比較演算子（==）</summary>
+            <param name="l">右辺</param>
+            <param name="r">左辺</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPadding.op_Inequality(Touryo.Infrastructure.CustomControl.RichClient.EditPadding,Touryo.Infrastructure.CustomControl.RichClient.EditPadding)">
+            <summary>比較演算子（!=）</summary>
+            <param name="l">右辺</param>
+            <param name="r">左辺</param>
+            <returns>
+            true：等しい
+            false：等しくない
+            </returns>
+        </member>
+        <member name="T:Touryo.Infrastructure.CustomControl.RichClient.EditPaddingConverter">
+            <summary>デザインタイム プロパティ用　パディング指定クラスのコンバータ（テンプレート）</summary>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPaddingConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            ConvertTo（プロパティグリッド表示値への変換）を実行可能か。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="destinationType">変換後の型</param>
+            <returns>
+            ConvertTo実行可：true。
+            ConvertTo実行不可：false。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPaddingConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            ConvertTo（プロパティグリッド表示値への変換）を実行する。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="culture">カルチャと</param>
+            <param name="value">EditPaddingオブジェクト</param>
+            <param name="destinationType">変換後の型</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPaddingConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            ConvertFrom（プロパティグリッドからの変換）を実行可能か。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="sourceType">文字列</param>
+            <returns>
+            ConvertFrom実行可：true。
+            ConvertFrom実行不可：false。
+            </returns>
+        </member>
+        <member name="M:Touryo.Infrastructure.CustomControl.RichClient.EditPaddingConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            ConvertFrom（プロパティグリッドからの変換）を実行する。
+            </summary>
+            <param name="context">コンテキスト</param>
+            <param name="culture">カルチャ</param>
+            <param name="value">文字列</param>
+            <returns>EditPaddingオブジェクト</returns>
+        </member>
+    </members>
+</doc>
