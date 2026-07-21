@@ -24,6 +24,15 @@ if (-not (Test-Path $cs)) {
     Expand-Archive -Path $zip -DestinationPath $work -Force
 }
 
+# --- 1b. Apply base2-overlay (parent-class-2 customizations) onto the extract ---
+# Overlay is the version-controlled source of truth; the extract is disposable.
+# Copy-Item (not xcopy) to stay non-interactive; -Force preserves BOM/encoding of files.
+$overlay = Join-Path $repo 'base2-overlay'
+if (Test-Path $overlay) {
+    Copy-Item -Path (Join-Path $overlay '*') -Destination $cs -Recurse -Force
+    Write-Output "DIAG: applied base2-overlay -> $cs"
+}
+
 # --- 2. Base build (net48: the two bats the skill specifies) ---
 Push-Location $cs
 try {
@@ -34,12 +43,25 @@ try {
 } finally { Pop-Location }
 
 # --- 2b. Business.RichClient (2CS / rich client dependency; not in 2_/3_ subset) ---
+# These are non-SDK, HintPath-only csproj with zero NuGet packages. The _net48 and
+# _netcore100 variants SHARE one obj\ folder, so a prior netcore SDK restore leaves
+# obj\project.assets.json there; Microsoft.NuGet.targets then aborts the net48 build
+# ("does not reference .NETFramework,Version=v4.8"). Remove those SDK-restore leftovers
+# and build with /t:build (NOT /t:restore -- restore is meaningless/breaking here).
 $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 $msb = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `
         -find MSBuild\**\Bin\MSBuild.exe | Select-Object -First 1
 if (-not $msb) { throw "MSBuild not found" }
+foreach ($rcObj in @(
+    (Join-Path $cs 'Frameworks\Infrastructure\Business\RichClient\obj'),
+    (Join-Path $cs 'Frameworks\Infrastructure\CustomControl\RichClient\obj'))) {
+    if (Test-Path $rcObj) {
+        Get-ChildItem $rcObj -Filter 'project.assets.json' -EA SilentlyContinue | Remove-Item -Force -EA SilentlyContinue
+        Get-ChildItem $rcObj -Filter '*.nuget.*'          -EA SilentlyContinue | Remove-Item -Force -EA SilentlyContinue
+    }
+}
 $brc = Join-Path $cs 'Frameworks\Infrastructure\BusinessRichClient_net48.sln'
-& $msb $brc /t:restore,build /p:Configuration=Release /nologo /v:m
+& $msb $brc /t:build /p:Configuration=Release /nologo /v:m
 if ($LASTEXITCODE -ne 0) { throw "BusinessRichClient build failed ($LASTEXITCODE)" }
 
 # --- 3. Vendor -> OpenTouryoAssemblies\Build_net48 ---

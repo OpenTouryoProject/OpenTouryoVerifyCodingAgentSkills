@@ -21,6 +21,14 @@ if (-not (Test-Path $cs)) {
     Expand-Archive -Path $zip -DestinationPath $work -Force
 }
 
+# --- 1b. Apply base2-overlay (parent-class-2 customizations) onto the extract ---
+# Overlay is the version-controlled source of truth; the extract is disposable.
+$overlay = Join-Path $repo 'base2-overlay'
+if (Test-Path $overlay) {
+    Copy-Item -Path (Join-Path $overlay '*') -Destination $cs -Recurse -Force
+    Write-Output "DIAG: applied base2-overlay -> $cs"
+}
+
 # --- 2. base build (netcore100 bats) + 2b RichClient ---
 Push-Location $cs
 try {
