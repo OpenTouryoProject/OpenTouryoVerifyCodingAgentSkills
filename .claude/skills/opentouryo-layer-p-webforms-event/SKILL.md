@@ -44,6 +44,8 @@ metadata:
 
 **接頭辞は設定ファイル（`app.config` の `appSettings`）で定義する。**
 未設定の種類は**結線されない**（`if (!string.IsNullOrEmpty(prefix))` で分岐している）。
+＝**接頭辞を空指定にすれば、その種別の P層イベント処理を止められる**（機能のキャンセル）。
+結線はページのコントロールツリーを**再帰走査**して行うので、**動的に生成したコントロール**も規約に沿えば結線される。
 
 **ハンドラ名のイベント名は、コントロール種別ごとに決まっている**（右列）。
 `_Click` はボタン系だけ。他は種別ごとに違うので、間違えると結線されない。
@@ -97,16 +99,17 @@ metadata:
 
 **コントロールがどこに置かれているかで名前が変わる。**
 
-| コントロールの位置 | ハンドラ名 |
-| --- | --- |
-| コンテンツページ上 | `UOC_（コントロール名）_（イベント名）` |
-| マスタページ上 | `UOC_（マスタページのファイル名）_（コントロール名）_（イベント名）` |
-| Webユーザコントロール上 | `UOC_（ユーザコントロールのID）_（コントロール名）_（イベント名）` |
+| コントロールの位置 | ハンドラ名 | 実装先 |
+| --- | --- | --- |
+| コンテンツページ上 | `UOC_（コントロール名）_（イベント名）` | 画面コードクラス（`MyBaseController` 派生） |
+| マスタページ上 | `UOC_（マスタページのファイル名）_（コントロール名）_（イベント名）` | **画面コードクラス**（名前はマスタ名だが実装はコンテンツ側）／またはマスタページ側なら接頭辞なし |
+| Webユーザコントロール上 | `UOC_（ユーザコントロールのID）_（コントロール名）_（イベント名）` | 画面コードクラス／または UC 側なら接頭辞なし |
 
 `（イベント名）` はコントロール種別で決まる（上の接頭辞の表）。
 
-具体例（`UOC_btnButton1_Click`／`UOC_sampleScreen_btnMButton1_Click`／`UOC_sampleControl1_btnUCButton_Click`）は
-`references/snippets.md`。
+**★ 接頭辞は「マスタページの `.master` ファイル名」。コンテンツ `.aspx` の名前ではない。** マスタとコンテンツが
+同名（例：`sampleScreen.master` と `sampleScreen.aspx` が両方ある）だと取り違えやすいが、**マスタ上ボタンの接頭辞は
+必ずマスタ名**。具体例（`UOC_TestScreen_btnMasterIdvdl_Click` 等）は `references/snippets.md`。
 
 同じユーザコントロールを2つ置いた場合、**ID が違えばハンドラも別**になる
 （`UOC_sampleControl1_btnUCButton_Click` と `UOC_sampleControl2_btnUCButton_Click`）。
@@ -157,6 +160,14 @@ protected string UOC_btnButton1_Click(FxEventArgs fxEventArgs)
 }
 ```
 
+## グリッド系に DataTable をバインドして一括更新するなら
+
+データバインド系コントロール（**`GridView` / `ListView` / `Repeater` / `DataList`**）に `DataTable` をバインドして
+明細を編集し、まとめて反映する構成は **`opentouryo-batch-update`**（`DataRow` の `RowState` で INSERT/UPDATE/DELETE を
+振り分け・楽観排他）。一般的な仕様＝**グリッド外の [追加] ボタンで空行（Added）、グリッド内の [削除]（`GridView` なら
+`RowDeleting` 等）で `dr.Delete()`（Deleted）、セル編集（Modified）**。`GridView`/`ListView`/`Repeater` のイベント自体は
+上の接頭辞で自動結線される（`DataList` は自動結線外＝ボタンで扱う）。
+
 ## やってはいけないこと
 
 - **対応済みのコントロールを `.aspx` の `OnClick` 等で結線する** — フレームワークが接頭辞で
@@ -174,3 +185,5 @@ protected string UOC_btnButton1_Click(FxEventArgs fxEventArgs)
   ASP.NET としては問題ないが、P層フレームワークのイベント処理機能が許可しない
 - **マスタページ上のコントロールのハンドラに接頭辞（ファイル名）を付け忘れる** —
   `UOC_（マスタページのファイル名）_（コントロール名）_（イベント名）`
+- **接頭辞にコンテンツ `.aspx` 名を使う（マスタ名と取り違える）** — マスタ上ボタンの接頭辞は**マスタ `.master` 名**。
+  マスタとコンテンツが同名だと間違えやすく、間違えても**コンパイルは通り実行時に呼ばれないだけ**（`private` と同じ静かな失敗）

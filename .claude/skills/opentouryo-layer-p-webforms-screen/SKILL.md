@@ -64,6 +64,28 @@ public partial class sampleScreen : MyBaseController
 | `this.FxSessionAbandon()` | セッションを消去する（タイムアウト検出用 Cookie も消す） |
 | `this.IsNoSession` | この画面でセッション ID を返さない（コンストラクタで設定） |
 
+## マスタページの新規作成（子画面/ダイアログを使うなら必須）
+
+コンテンツページはマスタページに乗せる。**マスタを新規に作るなら**：コードビハインドは **`BaseMasterController` を継承**し、
+`.master` に **フレームワークが使う Fx 隠しフィールド一式**（`ChildScreenType` / `ChildScreenUrl` / `CloseFlag` /
+`SubmitFlag` / `ScreenGuid` / `FxDialogStyle` / `BusinessDialogStyle` / `NormalScreenStyle` / `NormalScreenTarget` /
+`DialogFrameUrl` / `WindowGuid` / `RequestTicketGuid`）と `ScriptManager` を置く。**これが無いとダイアログ・子画面・
+不正操作防止が動かない。** 全文（隠しフィールド・`<head>` の js/css・`onload/onunload`）は `references/snippets.md`。
+
+**★ 配布物の `Framework/Js/common.js`・`ie_key_event.js`・`Css/style.css` をプロジェクトに取り込み**、`<head>` で
+リンク・`<body onload/onunload>` で結線する（これが無いとダイアログ/子画面/キー抑止/不正操作防止が動かない）。
+既存マスタ（配布サンプルの `sampleScreen.master`）があれば雛形にできるが、**マスタ名はコンテンツ `.aspx` と別名に
+読み替える**（無ければ上の骨格＋隠しフィールドから作る。`sampleScreen` は配布物固有名＝自プロジェクトに残さない）。
+**マスタページはネスト可**（サンプル `testNestMasterScreen`。ルートマスタに Fx 隠しフィールドがあればよい）。
+
+## 新規ファイルの csproj 登録・designer.cs（★ エージェント文脈で必須）
+
+**VS デザイナが自動でやることを、エージェント/CLI は手でやる。** net48 は**非SDK csproj**なので、新規 `.aspx`/`.master`
+は `<Content Include>`、コードビハインド `.aspx.cs`/`.master.cs` は `<Compile>`＋`<DependentUpon>`＋`<SubType>ASPXCodeBehind`、
+`.designer.cs` は `<Compile>`＋`<DependentUpon>`（`SubType` なし）で登録する。`.designer.cs` も**手書き**する
+（全サーバコントロールを `protected` フィールド宣言。**マスタ上コントロールは designer 不要＝`GetMasterWebControl` 経由**）。
+登録 XML と designer の書き方は `references/snippets.md`。
+
 ## 認証（Forms 認証）
 
 `web.config` に設定を書く。詳細は `opentouryo-auth`。
@@ -78,6 +100,8 @@ public partial class sampleScreen : MyBaseController
     <deny users="?" />          <!-- 未認証ユーザをサイト全体で拒否 -->
   </authorization>
 </system.web>
+<!-- ★ login.aspx / menu.aspx はサンプル画面名の例。自プロジェクトのログイン/メニュー画面パスに読み替える -->
+
 
 <!-- パス単位で例外を開ける -->
 <location path="Aspx/OAuth2">
@@ -88,6 +112,10 @@ public partial class sampleScreen : MyBaseController
 ```
 
 ### ログイン画面
+
+**P層 FW は Session 必須**なので、ログイン画面ではタイムアウト例外が出やすい。対策は3択：
+**(a) ログイン画面に P層 FW を使わない／(b) `IsNoSession = true`（当該画面で機能 OFF）／(c) `FxSessionAbandon()`**
+（詳細は `opentouryo-auth`）。下は (b)+(c) の例。
 
 **`IsNoSession = true` をコンストラクタで設定し、`UOC_FormInit` でセッションを消す。**
 
@@ -125,7 +153,15 @@ public partial class login : MyBaseController
 `RedirectFromLoginPage` の第2引数は Cookie を永続化するかどうか。**セキュリティを考慮して
 `false` を推奨。**
 
-ログアウトは専用画面（`logout.aspx`）の `UOC_FormInit` で `FormsAuthentication.SignOut()`。
+ログアウトは専用画面（サンプルでは `logout.aspx`。自プロジェクトの画面名に読み替える）の `UOC_FormInit` で
+`FormsAuthentication.SignOut()`。
+
+### 共通エラー画面は素の `Page`（`MyBaseController` を継承しない）
+
+**共通エラー画面（`ErrorScreen.aspx.cs`）は `System.Web.UI.Page` を継承する**（実物で確認）。**`MyBaseController` を
+継承してはいけない**——継承するとエラー処理中に再エラーが起き、`ArgumentException`「キー `SessionAbandonFlag` は
+既に追加」でエラーループになる。エラー画面への遷移元 `TransferErrorScreen` は親クラス2（`opentouryo-base2-customize`）。
+OAuth2 のコールバック画面が素の `Page` なのと同型（`opentouryo-oauth2-client`）。
 
 ## やってはいけないこと
 
@@ -135,3 +171,5 @@ public partial class login : MyBaseController
 - **`this.UserInfo` を自分で取得・生成する** — 親クラス2 が設定済み
 - **ログイン画面で `IsNoSession` の設定やセッション消去を忘れる** — 前のセッションが残る
 - **`RedirectFromLoginPage` の第2引数を `true` にする** — Cookie が永続化される。`false` を推奨
+- **共通エラー画面を `MyBaseController` を継承して作る** — 素の `Page` にする。継承すると
+  `SessionAbandonFlag` 重複でエラーループになる

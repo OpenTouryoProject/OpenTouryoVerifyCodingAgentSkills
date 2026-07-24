@@ -82,7 +82,12 @@ this.ReturnValue = testReturn;   // ← 先に設定する
 
 ## 自動振り分け
 
-`MyFcBaseLogic` が `UOC_DoAction` をオーバーライドし、レイトバインドで振り分ける。
+`MyFcBaseLogic`（**Fc＝振り分け機能付き**）が `UOC_DoAction` をオーバーライドし、レイトバインドで振り分ける。
+
+**★ 振り分けは `MyFcBaseLogic` だけの挙動。** 親クラス1 `BaseLogic` は常に `UOC_DoAction` を呼ぶ（`abstract`）。
+`MyFcBaseLogic` はその `UOC_DoAction` を override して `"UOC_" + MethodName` を Latebind するので `UOC_（メソッド名）` に届く。
+一方**非推奨の `MyBaseLogic` は `UOC_DoAction` の override を持たない**（実ソースでコメントアウト）＝呼び出しは常に**単一の
+`UOC_DoAction`** に来る（自動振り分けなし。分岐は自分で書く）。この差が `MyFcBaseLogic` を使う理由。
 
 ```
 呼び出し側が MethodName = "SelectShipper" を渡す
@@ -214,6 +219,12 @@ DBMS ごとに分離レベルの意味が異なるため、理解して設定す
 | 自動生成Dao | `new DaoShippers(this.GetDam())` | テーブル単位の CRUD | `opentouryo-dao-generated` |
 
 いずれも**コンストラクタに `this.GetDam()` を渡す**。Dao 側で接続を張らない。
+
+## 層の省略（設計の柔軟性・★ 非標準）
+
+規模が小さい等で B/D 層を省ける構成もある：**P層で直接 `Dam` を生成**してデータアクセス（P層のみ／P・D層）、
+または**共通Dao・自動生成Dao を使えば自作 Dao を割愛**（P・B層のみ）。ただし**標準の外**なので、
+**逸脱は標準化観点の例外認可を個別に検討**（`opentouryo-project-policy`）。既定は P・B・D の3層に載せる。
 
 ## やってはいけないこと
 

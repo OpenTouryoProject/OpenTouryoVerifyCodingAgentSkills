@@ -55,7 +55,23 @@ metadata:
 
 **対応していないコントロール・イベントは、.NET 標準のイベント処理（デザイナ結線、`+=`）でも
 書ける。ただしその場合、フレームワークの例外処理（`UOC_ABEND`）とログ出力を通らない。**
-土台に載せたいなら、親クラス2 での拡張（纏め者）を検討する。
+
+**★ データアクセスを伴わない細かなイベント（単項目チェック `Validating`、`DataGridView`／`DataTable` の編集など）は、
+カスタム結線せず標準の .NET イベントで処理してよい。** DB に触れない＝`UOC_ABEND`（例外→エラー画面）やアクセスログの
+土台が要らないため。**B層（データアクセス）を呼ぶイベントだけ**フレームワーク結線に載せる。
+
+**カスタム結線（親クラス2 `addControlEvent` の拡張＝纏め者）を実装する前に、まず隠しボタン（HiddenButton）の活用を検討する。**
+`.NET 標準イベント → HiddenButton.DoClick() → Click` で発火させれば、対応外のイベントもフレームワークの土台に
+載せられる（マルチプル/マルチキャストにも使える）。`MenuItem` は親クラス2 のカスタマイズ不要で、`UOC_FormInit` で
+各 `MenuItem.Click` に共通ハンドラ（`Item_Click`）を結線して使える。
+
+## グリッド（DataGridView）に DataTable をバインドして一括更新するなら
+
+`DataGridView` は自動結線の対象外（`FxPrefixOfGridView` は Web Forms 専用）。リッチクライアントでは
+**`DataGridView` に `DataTable` を（`BindingSource` 経由で）バインド**し、**[追加]／[削除] は通常のボタン**
+（`btn` で結線＝`UOC_btnAdd_Click` / `UOC_btnDelete_Click`）で行う。グリッド上の編集は `DataTable` の `RowState` に
+乗るので、まとめて INSERT/UPDATE/DELETE できる → **`opentouryo-batch-update`**（追加=空行 Added、削除=`dr.Delete()`=Deleted、
+編集=Modified を `RowState` で振り分け・楽観排他）。
 
 <!--
   結線箇所は2つに分かれている（実装で確認済み）:

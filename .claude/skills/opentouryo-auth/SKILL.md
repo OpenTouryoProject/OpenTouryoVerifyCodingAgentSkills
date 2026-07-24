@@ -220,7 +220,7 @@ net48 と net10.0 の差をそちらに記述している。
 セッションが消えればユーザ情報も消えるため、`DeleteUserInformation()` は通常不要。
 
 ```csharp
-// Web Forms: login.aspx.cs
+// Web Forms: login.aspx.cs（login.aspx はサンプル画面名。自プロジェクトのログイン画面に読み替える）
 protected override void UOC_FormInit()
 {
     this.FxSessionAbandon();   // セッション消去
@@ -236,6 +236,8 @@ public ActionResult Login()
 
 `FxSessionAbandon()` は3方式すべての親クラス1 が提供する。
 **セッション タイムアウト検出用 Cookie の削除とセッションの消去**をまとめて行う。
+
+**★ ログイン画面の Session タイムアウト対策3択**（P層FW非使用／`IsNoSession=true`／`FxSessionAbandon`）は `references/snippets.md`。
 
 | | 実装 |
 | --- | --- |

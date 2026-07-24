@@ -16,6 +16,7 @@ metadata:
 アプリケーションからのログ出力と、フレームワークが自動出力するログの理解。
 
 構成ファイルの読み方全般は `opentouryo-config`、例外時のログは `opentouryo-exception` を参照。
+**出たログ（ACCESS/SQLTRACE 等）を分析して障害・性能の対応を提案するのは `opentouryo-log-analysis`。**
 
 ## LogIF が唯一の入り口
 
@@ -120,10 +121,12 @@ LogIF.InfoLog("OPERATION", "受注を登録した。受注ID=" + orderId);
 
 判定は小文字化して比較するので `NLog` でも `nlog` でもよい。
 
-log4net の設定ファイルは `FxLog4NetConfFile` にパスを書く。
+**設定ファイルのパスは log4net/NLog とも同じキー `FxLog4NetConfFile`** で指す（NLog も実ソースでこのキーを読む）。
+違うのは**中身のフォーマット**。雛形が `root\files\resource\Log` にある：**`Log4NetConfigTemplate.xml`（log4net）／
+`NLogConfigTemplate.xml`（NLog）**。`SampleLogConf.xml` はサンプルの実 log4net 設定＝自プロジェクトの設定に読み替える。
 
 ```json
-"FxLog4NetConfFile": "C:/root/files/resource/Log/SampleLogConf.xml"
+"FxLog4NetConfFile": "%OT_RESOURCE_ROOT%/Log/SampleLogConf.xml"
 ```
 
 設定ファイル側で、ロガー名ごとに appender（出力先）とレベルを定義する。
