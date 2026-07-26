@@ -194,6 +194,7 @@ TODO
 - **業務例外（`BusinessApplicationException`）はリスローされない。** B層でスローすると
   フレームワークが捕捉し、正常系の戻り値（`ErrorFlag = true`）に変換する。呼び出し側で
   `catch` してはならない（飛んでこない）。詳細は `opentouryo-exception` を参照。
+- **新規 `.cs`/`.vb` にはファイルヘッダ**（所属機能名バナー＋クラス情報＋更新履歴表を言語コメントで）。クラス・メソッドは XML doc（`/// <summary>`）。詳細＝`opentouryo-comment-convention`。
 - TODO
 
 ## 非推奨クラス・メソッド
@@ -254,7 +255,7 @@ TODO
 規模のある変更は、いきなり実装せず次の順で進めるのを既定とする（小さな修正は省略してよい）。
 
 1. **仕様**：何を作るかを `docs/spec/<名前>.md` に書く（要件・受入条件）。
-2. **計画**：どう作るかを `docs/plan/<名前>.md` に書く（対象ファイル・使用スキル・手順）。
+2. **計画**：どう作るかを `docs/plan/<名前>.md` に書く（対象ファイル・使用スキル・手順。**設計事項の漏れ防止は `opentouryo-app-design`**）。
 3. **実装**：計画に沿って実装する。着手前に該当スキルを読む。
 
 `docs/tutorial/` に、スキル群を通しで試す実例がある（`docs/spec` / `docs/plan` の書き方の見本）。
@@ -266,7 +267,7 @@ TODO
 
 **利用可能なスキルは各 `SKILL.md` の `description` から自動的に認識される**ので、この文書に一覧は持たない
 （配置先：`.claude/skills/`〔Claude Code〕/ `.github/skills/`〔Copilot〕/ `.agents/skills/`〔agents〕）。
-**全スキルの一覧と「使いどころ」**（用途別・3分類）は README を参照：
+**全スキルの一覧と「使いどころ」**（用途別に分類）は README を参照：
 <https://github.com/OpenTouryoProject/OpenTouryoCodingAgentAssets/blob/main/README.md>（「スキル一覧」節）。
 
 ## 参考資料
