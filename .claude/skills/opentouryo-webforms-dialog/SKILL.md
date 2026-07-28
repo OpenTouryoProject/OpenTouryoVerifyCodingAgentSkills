@@ -67,6 +67,11 @@ this.ShowYesNoMessageDialog("messageID", "保存しますか？", "確認");
 // dialogStyle を足すオーバーロードもある
 ```
 
+**★ 後処理は「別ポストバック」で走る。** `ShowYesNoMessageDialog` を呼んだハンドラはそこで終わり、
+`UOC_YesNoDialog_Yes_Click` は**ユーザが YES を押した次のポストバック**で実行される。したがって
+「更新ボタン → 確認 → YES で更新」は、**ダイアログを出す時点で編集内容を確定して持ち回る**必要がある
+（例：編集中の `DataTable` を `Session` に保持＝`opentouryo-batch-update`。ローカル変数は次ポストバックまで残らない）。
+
 後処理は `UOC_YesNoDialog_Yes_Click` / `_No_Click` / `_X_Click(FxEventArgs parentFxEventArgs)` を
 `override`（**コードは `references/snippets.md`**）。
 
@@ -131,9 +136,11 @@ this.DeleteDataFromModalInterface();                       // 削除（全て）
 保持先は**親画面別セッション領域**（画面ごとに内部で別インデックスになるので、キー名が
 衝突しても競合しない）。**所定の画面からしかアクセスできない。**
 
-**複数ウィンドウ対応なら「ウィンドウ別セッション領域」**：`SetDataToBrowserWindow` / `GetDataFromBrowserWindow`
-（＋ `DeleteDataFromBrowserWindow`）。ブラウザ ウィンドウごとに別領域になるので、同一画面を複数ウィンドウで
-開いても競合しない。
+**複数ウィンドウ対応なら「ブラウザ・ウィンドウ別セッション領域」**：`SetDataToBrowserWindow` / `GetDataFromBrowserWindow`
+（＋ `DeleteDataFromBrowserWindow`。`BaseController.cs` L3195〜）。ブラウザ ウィンドウごとに別領域になるので、同一画面を複数ウィンドウで
+開いても競合しない。GET 要求時（遷移リダイレクトを除く）に GUID を採番し Hidden／QueryString で持ち回る。
+**Session 領域は入れ子の2層**：外側＝ブラウザ・ウィンドウ別（config `FxWindowGuidMaxQueueLength`）／内側＝
+親画面別（`FxScreeenGuidMaxQueueLength`。上記モーダルの保持先）。どちらも世代数を超えると LRU で自動削除（`opentouryo-config`）。
 
 **使い終わったら消す。** 消さない・大きなデータを入れると、サーバがメモリリークする。
 
