@@ -25,7 +25,8 @@
 
 ## 負荷分散（Web ファーム）
 
-- **`machineKey` を全ノードで統一**する。ViewState・Session（暗号化）・Cookie 認証チケットの暗号化／検証がノード間で相互運用可能になる（`opentouryo-config`／`opentouryo-auth`）。
+- **net48**：`web.config` の **`<machineKey>` を全ノードで統一**する。ViewState・Session（暗号化）・Cookie 認証チケットの暗号化／検証がノード間で相互運用可能になる（`opentouryo-config`／`opentouryo-auth`）。
+- **★ Core（net10.0）に `machineKey` は無い**。代わりに **ASP.NET Core Data Protection**（`AddDataProtection`）が Cookie 認証・アンチフォージェリ・TempData 等を保護。既定のキーリングは**マシン ローカル**なので、Web ファーム/複数インスタンスでは**共有ストレージに永続化**（`PersistKeysToFileSystem`〔共有UNC〕／`PersistKeysToStackExchangeRedis`／Azure Blob）＋**複数アプリ共有なら `SetApplicationName("同一名")`**。放置するとスケールアウト/再起動でトークン失効（ログイン切れ・anti-forgery エラー）。
 
 ## OpenTouryo での対応（どれをどのスキルで）
 
@@ -37,6 +38,27 @@
 | アプリ共通の**定数**（Application 的な固定値） | **共有情報**（`SPDefinition.xml`＋`GetSharedProperty`）＝ユーザ状態でなく設定値 | `opentouryo-shared-property` |
 | 認証チケット（Cookie）・`machineKey` | Forms 認証（net48）／Cookie 認証（Core） | `opentouryo-auth`・`opentouryo-config` |
 | 複数ポストバックに跨る編集（`DataTable`） | Session 保持（StateServer/SQLServer なら直列化可能に） | `opentouryo-batch-update` |
+
+## ★ 共通情報の持ち回り（2経路）
+
+システム全体で共通に使う情報（ユーザ情報等）の持ち回りは**2経路**：
+
+1. **ユーザ情報クラス `MyUserInfo`**（ユーザ名／端末〔IP・マシン名〕／権限）——**ログオン時に設定**し、**ASP.NET は Session／リッチクライアントはグローバル変数（`static`）**で保持。取得は `UserInfoHandle`（`opentouryo-auth`）。
+2. **共通引数クラス（`MyParameterValue`/`MyReturnValue` 派生）**——画面名・コントロール名・メソッド名・処理区分（`actionType`）・ユーザ情報 を持ち、**P→B→D へ引数で渡す**（`opentouryo-p-call-business`）。全 B層で運ぶ共通項目は親クラス2 で追加（`opentouryo-project-policy`／`opentouryo-base2-customize`）。
+
+**使い分け**：ユーザ状態＝Session/global（①）／レイヤ間の受け渡し＝引数クラス（②）／アプリ共通の定数＝共有情報（`GetSharedProperty`・上表）。
+
+## OpenTouryo の Session 管理機能（補足）
+
+- **Session 領域の自動削除**（★ **Web Forms 専用**＝`BaseController` の GUID キュー）：**あり**＝親画面別／ブラウザ・ウィンドウ別（LRU。`FxScreeenGuidMaxQueueLength`／`FxWindowGuidMaxQueueLength`。`opentouryo-webforms-dialog`）。**なし**＝ユーザ情報用／サブシステムID別（セッション中は保持され消えない）。
+
+- **タイムアウト検出**（**Web Forms・MVC 両方**）：スイッチ＝`FxSessionTimeOutCheck`（`opentouryo-config`・既定 **OFF**）。仕組み＝**揮発性 Cookie `SessionTimeOut`**（ブラウザを閉じると消える）＋**新規セッション判定**。セッションが切れた後の再アクセスは「新規セッションなのに検出用 Cookie が残っている」ため**タイムアウトと判定**し `FrameworkException`（`SESSION_TIMEOUT`）をスロー→共通エラー画面。**全 Web 親クラス1 に実装**＝`BaseController`〔WebForms〕／`BaseMVController`〔MVC net48〕／`BaseMVControllerCore`〔MVC Core〕。**★ Core は `HttpSessionState.IsNewSession` が無いため Session キーで疑似実装**。⇔ **不正操作防止（RequestTicket）・`IsNoSession` は Web Forms 専用**（MVC 親クラスに無い）と対照的。
+
+- **タイムアウト後の Session クリア＝`FxSessionAbandon()`**（**全3クラスに実装**・`opentouryo-auth`）：検出 ON 中に**通常の `Session.Abandon()`/`Clear()` を呼ぶと次アクセスで必ずタイムアウト例外**（検出用 Cookie が残るため）。`FxSessionAbandon` は**検出用 Cookie も同時に消す**ので例外にならない。**net48=`Abandon()`／Core=`Clear()`**。**クリア後は別画面へ GET 遷移**（同画面ポストバックは不正操作防止でエラー）。ログイン画面の対策3択（P層FW非使用／`IsNoSession=true`〔★ WebForms 専用〕／`FxSessionAbandon`）は `opentouryo-auth`。
+
+- **タイムアウト防止（Ping＝キープアライブ）**：クライアント JS **`Scripts/touryo/common.js` の `HttpPing()`**（`$.ajax` GET・`cache:false`）が**一定間隔でサーバへ ping** し、画面を開いている間 Session を維持する。**有効化＝`window.setInterval(HttpPing, 5*60*1000)` のコメントアウト（`//`）を外す**（既定は無効）。ping 先は **WebForms=`ping.aspx`／MVC=`~/Ping`（`Fx_ResolveServerUrl('~/Ping')`）**。**★ クライアント JS なので MVC でも有効**（Web Forms 専用ではない。`MVC_Sample/Scripts/touryo/common.js` に実在）。
+
+- **Session サイズ計測**：**`MyCmnFunction.CalculateSessionSizeMB()`／`CalculateSessionSizeKB()`**（`Business/Util`・public static）で肥大を監視（Session に大きな `DataTable` 等を持つとメモリ圧迫＝`opentouryo-batch-update`）。
 
 ## 設計時に決めること（チェック）
 
