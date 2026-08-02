@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -251,16 +251,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WS_sample\WSIFType_sample\WSIFType_sample.csproj">
-      <Project>{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}</Project>
-      <Name>WSIFType_sample</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\WS_sample\WSServer_sample\WSServer_sample.csproj">
-      <Project>{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}</Project>
-      <Name>WSServer_sample</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Aspx\Common\ErrorScreen.aspx" />
     <Content Include="Aspx\Common\Wuc\sampleChildControl.ascx" />
     <Content Include="Aspx\Common\Wuc\sampleControl.ascx" />
@@ -270,9 +260,6 @@
     <Content Include="Aspx\Framework\myYesNoMessageDialog.aspx" />
     <Content Include="Aspx\Framework\Ping.aspx" />
     <Content Include="Aspx\OAuth2\OAuth2AuthorizationCodeGrantClient.aspx" />
-    <Content Include="Aspx\sample\3Tier\ProductsConditionalSearch.aspx" />
-    <Content Include="Aspx\sample\3Tier\ProductsDetail.aspx" />
-    <Content Include="Aspx\sample\3Tier\ProductsSearchAndUpdate.aspx" />
     <Content Include="Aspx\sample\crud\sampleScreen.aspx" />
     <Content Include="Aspx\sample\crud\sampleScreen_cc.aspx" />
     <Content Include="Aspx\start\login.aspx" />
@@ -417,8 +404,6 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppCode\sample\3TierTableAdapter\ProductsTableAdapter.cs" />
-    <Compile Include="AppCode\sample\Business\GetMasterData.cs" />
     <Compile Include="AppCode\sample\Business\LayerB.cs" />
     <Compile Include="AppCode\sample\Common\TestParameterValue.cs" />
     <Compile Include="AppCode\sample\Common\TestReturnValue.cs" />
@@ -598,27 +583,6 @@
     </Compile>
     <Compile Include="Aspx\OAuth2\OAuth2AuthorizationCodeGrantClient.aspx.designer.cs">
       <DependentUpon>OAuth2AuthorizationCodeGrantClient.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Aspx\sample\3Tier\ProductsConditionalSearch.aspx.cs">
-      <DependentUpon>ProductsConditionalSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aspx\sample\3Tier\ProductsConditionalSearch.aspx.designer.cs">
-      <DependentUpon>ProductsConditionalSearch.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Aspx\sample\3Tier\ProductsDetail.aspx.cs">
-      <DependentUpon>ProductsDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aspx\sample\3Tier\ProductsDetail.aspx.designer.cs">
-      <DependentUpon>ProductsDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Aspx\sample\3Tier\ProductsSearchAndUpdate.aspx.cs">
-      <DependentUpon>ProductsSearchAndUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aspx\sample\3Tier\ProductsSearchAndUpdate.aspx.designer.cs">
-      <DependentUpon>ProductsSearchAndUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\sample\crud\sampleScreen.aspx.cs">
       <DependentUpon>sampleScreen.aspx</DependentUpon>

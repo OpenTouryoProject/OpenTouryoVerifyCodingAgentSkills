@@ -15,12 +15,6 @@
                 <li><a href="<%= this.ResolveUrl("~/Aspx/Sample/Crud/sampleScreen_cc.aspx") %>">通信制御</a></li>
             </ul>
         </li>
-        <li>サンプル（3層データバインド・テスト）
-            <ul>
-                <li><a href="<%= this.ResolveUrl("~/Aspx/Sample/3Tier/ProductsConditionalSearch.aspx") %>">一覧 → 更新</a></li>
-                <li><a href="<%= this.ResolveUrl("~/Aspx/Sample/3Tier/ProductsSearchAndUpdate.aspx") %>">一覧 & 更新</a></li>
-            </ul>
-        </li>
     </ul>
     -------------------------<br />
     単体テスト プログラム<br />

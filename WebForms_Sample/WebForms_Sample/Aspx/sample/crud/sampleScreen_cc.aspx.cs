@@ -18,7 +18,7 @@
 //*
 //**********************************************************************************
 
-using WSIFType_sample;
+using MyType;
 
 using System;
 using System.Data;
