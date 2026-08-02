@@ -65,7 +65,7 @@ B層呼び出しは `opentouryo-p-call-business`、子画面/ダイアログは 
 
 ## マスタページの新規作成（子画面/ダイアログを使うなら必須）
 
-出典：UserGuide 纏め者編 §5.2、`OTRVCAS` の `Aspx/Common/Master/sampleScreen.master(.cs)`（実物）で裏取り。
+出典：UserGuide 纏め者編 §5.2、配布サンプル `WebForms_Sample` の `Aspx/Common/Master/sampleScreen.master(.cs)`（セットアップで導入する実物）で裏取り。
 
 コードビハインド（`.master.cs`）は **`BaseMasterController` を継承**する：
 
@@ -94,7 +94,7 @@ public partial class CommonMaster : BaseMasterController { }   // マスタベ�
 ```
 
 **★ 配布物の JS/CSS を取り込むのが前提**（無いとダイアログ・子画面・キーイベント抑止・不正操作防止が動かない）。
-**実サンプル（OTRVCAS `sampleScreen.master`）は ASP.NET バンドルで読み込む**（`App_Start/BundleConfig.cs` で
+**配布サンプル `WebForms_Sample` の `sampleScreen.master` は ASP.NET バンドルで読み込む**（`App_Start/BundleConfig.cs` で
 `~/bundles/touryo` に `common.js`・`ie_key_event.js` 等を束ねる）：
 
 ```aspx
@@ -113,6 +113,19 @@ public partial class CommonMaster : BaseMasterController { }   // マスタベ�
 
 配布サンプルの `sampleScreen.master` があれば雛形にできるが、**マスタ名はコンテンツ `.aspx` と別名に読み替える**
 （`sampleScreen` は配布物固有名＝残さない）。無ければ上の骨格＋隠しフィールドから作る。
+
+### ★ マスタ名は「マスタ上ボタンのハンドラ名」との契約（改名・削除で揃える）
+
+マスタ ページ上のコントロール（ログアウト等のボタン）は、フレームワークが
+**`UOC_<マスタページ名（拡張子なし）>_<コントロールID>_<イベント名>`** という名前で**遅延バインド**する
+（`BaseController.GetMethodName`。マスタ上＝マスタ名を接頭辞、コンテンツ上＝接頭辞なし、UC 上＝UC 名を接頭辞）。
+
+- **ハンドラの実装先は2通り**：全画面で共通の挙動（ログアウト等）＝**親クラス2**（`MyBaseController` 派生／`Presentation/MyBaseController.cs` の「マスタ ページ上の…共通イベントの UOC メソッド」リージョン）／**画面ごとに違う挙動＝派生の末端＝画面コードクラス（`.aspx.cs`）**。どちらも接頭辞は同じ `UOC_<マスタ名>_`。
+- 配布サンプルは前者に `UOC_sampleScreen_btnMButton101_Click`（ログアウト）、後者に `UOC_sampleScreen_btnMButton1_Click`〜（画面固有）を持つ。
+- 親クラス2 も**ソース提供＝纏め者が編集する側**（当該リージョンに「不要な場合は削除してく下さい」と明記）。バイナリで固定ではない。
+- **マスタを改名**（例 `CommonMaster.master`）するなら、その `UOC_<マスタ名>_...` ハンドラを**実装先（親クラス2 と画面コードクラスの両方）で `UOC_CommonMaster_...` へ揃えて改名**する。
+- **マスタを削除／不使用**にしたら、そのマスタ名の `UOC_<マスタ名>_...` ハンドラは**不要＝削除対象**（親クラス2 の当該リージョンごと・画面コードクラス側の残骸も）。
+- **★ UOC メソッド未発見は例外にならず「黙って無反応」**（不一致に気づけない）。改名・削除の際は必ずマスタ名とハンドラ名の対応を確認する（`opentouryo-base2-customize`）。
 
 ## 新規 WebForms ファイルの csproj 登録（★ エージェント文脈で必須）
 

@@ -19,6 +19,7 @@ dr.Delete();
 - **Web Forms（`GridView` / `ListView` / `Repeater` / `DataList`）**：削除ボタンの `UOC_gvw..._RowDeleting`（`GridView`）等で
   該当行を `Delete()`、追加ボタンの `UOC_btnAdd_Click` で `NewRow()`＋`Rows.Add()`（`opentouryo-layer-p-webforms-event`。
   `DataList` はイベント自動結線外＝ボタンで扱う）。複数ポストバックに跨るなら `DataTable` を Session に保持。
+- **`RowDeleting` は該当行を `Delete()` して再バインドするだけ**で足りる＝`e.Cancel` は不要（`DataTable` バインド〔`DataSourceID` 無し〕では GridView 自身は削除処理を持たない。実サンプル `testGridView` も `e.Cancel` を設定しない）。
 - **WinForms（`DataGridView`）**：`DataTable`（`BindingSource` 経由）をバインド。**[追加]／[削除] は通常のボタン**
   （`btn`＝`UOC_btnAdd_Click` / `UOC_btnDelete_Click`。`DataGridView` は自動結線外＝`opentouryo-layer-p-winforms-event`）。
 
@@ -50,6 +51,11 @@ foreach (GridViewRow gvr in this.gvwSuppliers.Rows)
     DataRow dr = GetDataRowForDisplayIndex(dt, gvr.RowIndex);
 
     string edited = ((TextBox)gvr.FindControl("txtCompanyName")).Text;
+
+    // ★ 追加行（Added）は全列が DBNull 始まり。下の skip 判定に掛けると値を入れない列が DBNull のまま残り、
+    //   S1_Insert() が NOT NULL 列へ NULL を送って落ちる → Added は skip せず無条件代入する
+    //   （下の「空↔空は変更なし」は Unchanged/Modified 行だけの話）
+    if (dr.RowState == DataRowState.Added) { dr["CompanyName"] = edited; continue; }
 
     // ★ 元が DBNull の列に "" を代入しない・現在値と同じなら代入しない（無駄 Modified＝無駄 UPDATE を防ぐ）
     object cur = dr["CompanyName"];
@@ -117,6 +123,9 @@ foreach (DataRow dr in dt.Rows)
 // 成功後：RowState を Unchanged に戻す
 dt.AcceptChanges();
 ```
+
+- ★ **追加した行（`Added`）を `Delete()` すると `Detached` になり `dt.Rows` から外れる**＝この switch には来ない
+  （＝追加→削除した行は DELETE されず単に消える。正しい挙動）。`Deleted` に来るのは**元から DB にあった行**だけ。
 
 - `Set_列_forUPD`＝UPDATE の SET 句、`PK_列`＝WHERE、`列名`＝挿入/主キー以外（`opentouryo-dao-generated`）。
 - 更新/削除の**件数0＝楽観排他の失敗**（タイムスタンプ アンマッチ）→ 業務例外（`opentouryo-exception`）。

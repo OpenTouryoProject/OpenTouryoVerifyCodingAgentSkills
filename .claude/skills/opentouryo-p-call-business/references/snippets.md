@@ -3,6 +3,9 @@
 出典：UserGuide 開発者編 §4.2／各機能編 §6（通信制御）／リッチクライアント編 §4（2CS）、実ソースで裏取り。
 **on-demand 参照**（SKILL 予算外）。
 
+> ★ スニペット中の `TestParameterValue`／`TestReturnValue`／`LayerB`／`LayerD` は**配布サンプル由来の名前＝プレースホルダ**
+> （`〈…〉` と同じく自プロジェクトの型名に読み替える。サンプルを消した状態からの実装ではこれらは実在しない）。
+
 ## インプロセス呼び出し（同一プロセスで B層を直接）
 
 ```csharp
@@ -16,8 +19,8 @@ protected string UOC_〈イベントハンドラ名〉(FxEventArgs fxEventArgs)
         "〈actionType〉",          // 条件分岐等に使う自由文字列（先頭[0]=DBMS）
         this.UserInfo);            // ユーザ情報（ベース2 で追加した項目）
 
-    // 分離レベル
-    DbEnum.IsolationLevelEnum iso = this.SelectIsolationLevel();
+    // 分離レベル（一律 User＝MyFcBaseLogic.UOC_ConnectionOpen でプロジェクト既定へ振替）
+    DbEnum.IsolationLevelEnum iso = DbEnum.IsolationLevelEnum.User;
 
     // B層を生成して実行
     LayerB myBusiness = new LayerB();
