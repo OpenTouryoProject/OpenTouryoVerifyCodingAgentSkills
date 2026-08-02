@@ -1,39 +1,40 @@
-# Download archive/<ref>.zip -> build net48 base + RichClient -> vendor to
-# OpenTouryoAssemblies\Build_net48. Idempotent; re-run to refresh a tag.
-# NOTE: ASCII-only comments on purpose. Windows PowerShell 5.1 reads BOM-less
-# .ps1 as Windows-1252; non-ASCII (Japanese) comment bytes can corrupt parsing
-# of the following statement (observed: it swallowed `$ref = '03-20'`).
+# Download archive/<ref>.zip -> build net48 base -> vendor to
+# OpenTouryoAssemblies\Build_net48. Idempotent; re-run to refresh a ref.
+# Target sample: WebForms_Sample (net48 only, no RichClient, no base2 overlay).
 $ErrorActionPreference = 'Stop'
-$repo    = Split-Path -Parent $PSScriptRoot   # scripts\ parent = repo root
-$ref     = '03-20'                            # fixed tag
-$work    = 'C:\otr'                           # short root (avoid MAX_PATH / MSB3553)
-$zip     = Join-Path $work ("OpenTouryo-" + $ref + ".zip")
-$extract = Join-Path $work ("OpenTouryo-" + $ref)
+$repo    = Split-Path -Parent $PSScriptRoot   # scripts\ の親 = repo root
+$ref     = 'develop'                          # branch (latest); test1-setup case 3
+# Base build runs from a SHORT root (C:\otr), not <repo>\Temp: the legacy
+# net48 Business build writes a very long generated .resources filename;
+# under a deep repo path the fully-qualified path exceeds MAX_PATH (MSB3553).
+$work    = 'C:\otr'
+$zip     = Join-Path $work "OpenTouryo-$ref.zip"
+$extract = Join-Path $work "OpenTouryo-$ref"
 $cs      = Join-Path $extract 'root\programs\CS'
 $vendor  = Join-Path $repo 'OpenTouryoAssemblies\Build_net48'
+$overlay = Join-Path $repo 'base2-overlay'    # present only when customizing base class 2
 
 # --- 1. ZIP acquisition (not git clone) ---
 New-Item -ItemType Directory -Force -Path $work | Out-Null
-Write-Output "DIAG: ref=$ref extract=$extract csExists=$(Test-Path $cs)"
-if (-not (Test-Path $cs)) {
+if (-not (Test-Path $extract)) {
     if (-not (Test-Path $zip)) {
+        # WebClient.DownloadFile() defaults to an old TLS and gets 404 from GitHub
+        # codeload (a HEAD returns 200 -> misleading). Force TLS 1.2 + Invoke-WebRequest.
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Invoke-WebRequest -UseBasicParsing -OutFile $zip `
-            -Uri ("https://github.com/OpenTouryoProject/OpenTouryo/archive/" + $ref + ".zip")
+        Invoke-WebRequest -Uri "https://github.com/OpenTouryoProject/OpenTouryo/archive/$ref.zip" -OutFile $zip
     }
     Expand-Archive -Path $zip -DestinationPath $work -Force
 }
+if (-not (Test-Path $cs)) { throw "extract layout unexpected: $cs not found" }
 
-# --- 1b. Apply base2-overlay (parent-class-2 customizations) onto the extract ---
-# Overlay is the version-controlled source of truth; the extract is disposable.
-# Copy-Item (not xcopy) to stay non-interactive; -Force preserves BOM/encoding of files.
-$overlay = Join-Path $repo 'base2-overlay'
+# --- 1b. (optional) apply base2 overlay BEFORE building ---
+# Not used here (no base2-overlay in this repo); kept for parity with the skill.
 if (Test-Path $overlay) {
     Copy-Item -Path (Join-Path $overlay '*') -Destination $cs -Recurse -Force
-    Write-Output "DIAG: applied base2-overlay -> $cs"
 }
 
-# --- 2. Base build (net48: the two bats the skill specifies) ---
+# --- 2. Base build (net48 only: the two bats the skill specifies) ---
+# pause at bat end -> feed NUL; run from CS so relative paths resolve.
 Push-Location $cs
 try {
     cmd /c ".\2_Build_NuGet_net48.bat < nul"
@@ -42,35 +43,16 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "3_Build_Business_net48 failed ($LASTEXITCODE)" }
 } finally { Pop-Location }
 
-# --- 2b. Business.RichClient (2CS / rich client dependency; not in 2_/3_ subset) ---
-# These are non-SDK, HintPath-only csproj with zero NuGet packages. The _net48 and
-# _netcore100 variants SHARE one obj\ folder, so a prior netcore SDK restore leaves
-# obj\project.assets.json there; Microsoft.NuGet.targets then aborts the net48 build
-# ("does not reference .NETFramework,Version=v4.8"). Remove those SDK-restore leftovers
-# and build with /t:build (NOT /t:restore -- restore is meaningless/breaking here).
-$vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-$msb = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild `
-        -find MSBuild\**\Bin\MSBuild.exe | Select-Object -First 1
-if (-not $msb) { throw "MSBuild not found" }
-foreach ($rcObj in @(
-    (Join-Path $cs 'Frameworks\Infrastructure\Business\RichClient\obj'),
-    (Join-Path $cs 'Frameworks\Infrastructure\CustomControl\RichClient\obj'))) {
-    if (Test-Path $rcObj) {
-        Get-ChildItem $rcObj -Filter 'project.assets.json' -EA SilentlyContinue | Remove-Item -Force -EA SilentlyContinue
-        Get-ChildItem $rcObj -Filter '*.nuget.*'          -EA SilentlyContinue | Remove-Item -Force -EA SilentlyContinue
-    }
-}
-$brc = Join-Path $cs 'Frameworks\Infrastructure\BusinessRichClient_net48.sln'
-& $msb $brc /t:build /p:Configuration=Release /nologo /v:m
-if ($LASTEXITCODE -ne 0) { throw "BusinessRichClient build failed ($LASTEXITCODE)" }
+# --- 2b. Business.RichClient: NOT needed for WebForms_Sample (2CS / WSClient only) ---
 
 # --- 3. Vendor -> OpenTouryoAssemblies\Build_net48 ---
 $src = Join-Path $cs 'Frameworks\Infrastructure\Build_net48'
 if (-not (Test-Path $src)) { throw "Build output not found: $src" }
 New-Item -ItemType Directory -Force -Path $vendor | Out-Null
 Copy-Item -Path (Join-Path $src '*') -Destination $vendor -Recurse -Force
+# The .bat wrappers end with `pause` and swallow msbuild's exit code, so confirm
+# the build actually produced the Business DLL (most prone to fail: MSB3553).
 if (-not (Test-Path (Join-Path $vendor 'OpenTouryo.Business.dll'))) {
-    throw "Base build did not produce OpenTouryo.Business.dll."
+    throw "Base build did not produce OpenTouryo.Business.dll (check the build output above)."
 }
-Write-Host "=== Build_net48 vendored DLLs ===" -ForegroundColor Green
 Get-ChildItem $vendor -Filter 'OpenTouryo.*.dll' | Select-Object -ExpandProperty Name

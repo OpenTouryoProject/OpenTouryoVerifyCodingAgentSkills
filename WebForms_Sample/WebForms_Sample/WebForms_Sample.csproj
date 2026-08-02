@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -249,8 +249,16 @@
     <Reference Include="Microsoft.AspNet.FriendlyUrls">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\..\WS_sample\WSIFType_sample\WSIFType_sample.csproj"><Name>WSIFType_sample</Name></ProjectReference>
-    <ProjectReference Include="..\..\WS_sample\WSServer_sample\WSServer_sample.csproj"><Name>WSServer_sample</Name></ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WS_sample\WSIFType_sample\WSIFType_sample.csproj">
+      <Project>{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}</Project>
+      <Name>WSIFType_sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WS_sample\WSServer_sample\WSServer_sample.csproj">
+      <Project>{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}</Project>
+      <Name>WSServer_sample</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aspx\Common\ErrorScreen.aspx" />

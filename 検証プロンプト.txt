@@ -1,0 +1,12 @@
+
+- WebForms_Sample
+  ".\test\prompt\test1-setup.txt" の ケース3 を実行して下さい。branchはdevelopを使用します。
+- MVC_Sample
+  ".\test\prompt\test1-setup.txt" の ケース1 を実行して下さい。branchはdevelopを使用します。
+- MVC_Sample_Core
+  ".\test\prompt\test1-setup.txt" の ケース2 を実行して下さい。branchはdevelopを使用します。
+- 2CSClientWin_sample
+  ".\test\prompt\test1-setup.txt" の ケース4 を実行して下さい。branchはdevelopを使用します。
+- WSClientWin_sample
+  ".\test\prompt\test1-setup.txt" の ケース8 を実行して下さい。branchはdevelopを使用します。
+
