@@ -84,8 +84,6 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <ProjectReference Include="..\..\WSIFType_sample\WSIFType_sample.csproj"><Name>WSIFType_sample</Name></ProjectReference>
-    <ProjectReference Include="..\..\WSServer_sample\WSServer_sample.csproj"><Name>WSServer_sample</Name></ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncFunc.cs" />
@@ -168,6 +166,18 @@
     <PackageReference Include="Microsoft.Owin.Security">
       <Version>4.2.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSIFType_sample\WSIFType_sample.csproj">
+      <Project>{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}</Project>
+      <Name>WSIFType_sample</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSServer_sample\WSServer_sample.csproj">
+      <Project>{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}</Project>
+      <Name>WSServer_sample</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

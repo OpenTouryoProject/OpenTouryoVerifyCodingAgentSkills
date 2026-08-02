@@ -228,7 +228,7 @@
       <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\OpenTouryoAssemblies\Build_net48\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -245,8 +245,6 @@
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\..\WSIFType_sample\WSIFType_sample.csproj"><Name>WSIFType_sample</Name></ProjectReference>
-    <ProjectReference Include="..\..\WSServer_sample\WSServer_sample.csproj"><Name>WSServer_sample</Name></ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -282,6 +280,18 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSIFType_sample\WSIFType_sample.csproj">
+      <Project>{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}</Project>
+      <Name>WSIFType_sample</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSServer_sample\WSServer_sample.csproj">
+      <Project>{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}</Project>
+      <Name>WSServer_sample</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />

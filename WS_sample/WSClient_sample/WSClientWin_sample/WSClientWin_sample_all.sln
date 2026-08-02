@@ -1,13 +1,17 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11205.157 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSClientWin_sample", "WSClientWin_sample.csproj", "{386EA604-40DB-44A8-87AE-F29B209BA9CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFService", "..\..\..\..\Frameworks\Infrastructure\ServiceInterface\WCFService\WCFService.csproj", "{096A202A-72E4-41D8-8B61-970E48E38135}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFService", "..\..\ServiceInterface\WCFService\WCFService.csproj", "{096A202A-72E4-41D8-8B61-970E48E38135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETWebService", "..\..\..\..\Frameworks\Infrastructure\ServiceInterface\ASPNETWebService\ASPNETWebService.csproj", "{31B8CFB3-33AA-4528-AA5F-A1888A73977B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETWebService", "..\..\ServiceInterface\ASPNETWebService\ASPNETWebService.csproj", "{31B8CFB3-33AA-4528-AA5F-A1888A73977B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSServer_sample", "..\..\WSServer_sample\WSServer_sample.csproj", "{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSIFType_sample", "..\..\WSIFType_sample\WSIFType_sample.csproj", "{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +71,38 @@ Global
 		{31B8CFB3-33AA-4528-AA5F-A1888A73977B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{31B8CFB3-33AA-4528-AA5F-A1888A73977B}.Release|x86.ActiveCfg = Release|Any CPU
 		{31B8CFB3-33AA-4528-AA5F-A1888A73977B}.Release|x86.Build.0 = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|.NET.Build.0 = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Debug|x86.Build.0 = Debug|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|.NET.ActiveCfg = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|.NET.Build.0 = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}.Release|x86.Build.0 = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|.NET.Build.0 = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Debug|x86.Build.0 = Debug|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|.NET.ActiveCfg = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|.NET.Build.0 = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|x86.ActiveCfg = Release|Any CPU
+		{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
