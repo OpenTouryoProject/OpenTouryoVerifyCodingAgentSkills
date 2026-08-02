@@ -2,11 +2,17 @@
 - WebForms_Sample
   ".\test\prompt\test1-setup.txt" の ケース3 を実行して下さい。branchはdevelopを使用します。
 - MVC_Sample
-  ".\test\prompt\test1-setup.txt" の ケース1 を実行して下さい。branchはdevelopを使用します。
+  ".\test\prompt\test1-setup.txt" の ケース1 を実行して下さい。
 - MVC_Sample_Core
-  ".\test\prompt\test1-setup.txt" の ケース2 を実行して下さい。branchはdevelopを使用します。
+  ".\test\prompt\test1-setup.txt" の ケース2 を実行して下さい。
 - 2CSClientWin_sample
-  ".\test\prompt\test1-setup.txt" の ケース4 を実行して下さい。branchはdevelopを使用します。
+  ".\test\prompt\test1-setup.txt" の ケース4 を実行して下さい。
 - WSClientWin_sample
-  ".\test\prompt\test1-setup.txt" の ケース8 を実行して下さい。branchはdevelopを使用します。
+  ".\test\prompt\test1-setup.txt" の ケース8 を実行して下さい。
 
+- WebForms_Sampleの2層化
+  ".\test\prompt\test1-transform.txt" の ケース1 を実行して下さい。
+- WebForms_Sampleの最小化
+  ".\test\prompt\test1-transform.txt" の ケース2 を実行して下さい。
+- ベース２カスタマイズ（OLE、ODBC削除）
+  ".\test\prompt\test1-transform.txt" の ケース3 を実行して下さい。

@@ -266,8 +266,16 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\..\WS_sample\WSIFType_sample\WSIFType_sample.csproj"><Name>WSIFType_sample</Name></ProjectReference>
-    <ProjectReference Include="..\..\WS_sample\WSServer_sample\WSServer_sample.csproj"><Name>WSServer_sample</Name></ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WS_sample\WSIFType_sample\WSIFType_sample.csproj">
+      <Project>{E4ECBB27-684E-49C2-B0F5-6CEFE33F4BDB}</Project>
+      <Name>WSIFType_sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WS_sample\WSServer_sample\WSServer_sample.csproj">
+      <Project>{720D48EF-B277-4C46-90B4-FBD8DA81D5CA}</Project>
+      <Name>WSServer_sample</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -314,6 +322,8 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\touryo\Style.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\touryo\loading.gif" />
+    <Content Include="images\touryo\logo.png" />
     <Content Include="Index.html" />
     <Content Include="Scripts\app\Site.js" />
     <Content Include="app.config" />
