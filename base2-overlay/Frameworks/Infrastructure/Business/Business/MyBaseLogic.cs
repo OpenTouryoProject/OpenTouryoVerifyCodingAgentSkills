@@ -147,25 +147,25 @@ namespace Touryo.Infrastructure.Business.Business
                     // 接続文字列をロード
                     connstring = GetConfigParameter.GetConnectionString("ConnectionString_SQL");
                 }
+                //else if (parameterValue.ActionType.Split('%')[0] == "ORA")
+                //{
+                //    // Oracle / Oracle Client用のDamを生成
+                //    dam = new DamOraClient();
+
+                //    // 接続文字列をロード
+                //    connstring = GetConfigParameter.GetConnectionString("ConnectionString_ORA");
+                //}
 #if NETCOREAPP2_0
 #else
-                else if (parameterValue.ActionType.Split('%')[0] == "OLE")
+                else if (parameterValue.ActionType.Split('%')[0] == "ODP")
                 {
-                    // OLEDB.NET用のDamを生成
-                    dam = new DamOLEDB();
+                    // Oracle / ODP.NET用のDamを生成
+                    dam = new DamManagedOdp();
 
                     // 接続文字列をロード
-                    connstring = GetConfigParameter.GetConnectionString("ConnectionString_OLE");
+                    connstring = GetConfigParameter.GetConnectionString("ConnectionString_ODP");
                 }
 #endif
-                else if (parameterValue.ActionType.Split('%')[0] == "ODB")
-                {
-                    // ODBC.NET用のDamを生成
-                    dam = new DamODBC();
-
-                    // 接続文字列をロード
-                    connstring = GetConfigParameter.GetConnectionString("ConnectionString_ODBC");
-                }
                 //else if (parameterValue.ActionType.Split('%')[0] == "DB2")
                 //{
                 //    // DB2.NET用のDamを生成
